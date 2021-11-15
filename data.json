@@ -1,0 +1,13 @@
+{
+    "pokemon" : [
+        "pikachu",
+        "tiplouf",
+        "ouisticram"
+    ],
+
+    "type" : [
+        "feu",
+        "eau",
+        "terre"
+    ]
+}
