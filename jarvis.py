@@ -1,7 +1,4 @@
 
-from os import read
-
-
 class Jarvis:
     
     def __init__(self, fichier):
@@ -16,7 +13,7 @@ class Jarvis:
         print("Initialisation terminée")
 
     def lecture(self):
-        data = open("./"+self.fichier+".txt", "r")
+        data = open("./graphes/"+self.fichier+".txt", "r")
         self.data = data.readline()
         return self.data
     
@@ -35,9 +32,7 @@ class Jarvis:
         mat = []
         for i in range(self.sommet):
             mat.append([0]*self.arc)
-            
-            
-        
+
         print(mat)
         
     def numerisation(self, pos):
@@ -64,7 +59,7 @@ class Jarvis:
         return mat
     
     def boucleread(self):
-        data = open("./"+self.fichier+".txt", "r")
+        data = open("./graphes/"+self.fichier+".txt", "r")
         
         mat = []
         
@@ -79,7 +74,7 @@ class Jarvis:
 
 
 
-graphe_test = Jarvis("g_test")
+graphe_test = Jarvis("test")
 #graphe_test.affichage()
 #graphe_test.matrice()
 
