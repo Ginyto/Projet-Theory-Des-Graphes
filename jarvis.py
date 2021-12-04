@@ -71,14 +71,14 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
-        
-        print("Hello there")
 
 
 
 graphe_test = Jarvis("test")
 #graphe_test.affichage()
 #graphe_test.matrice()
+
+print("Hello world!")
 
 
 
