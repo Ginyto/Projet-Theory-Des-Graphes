@@ -71,9 +71,6 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
-    
-    def testpourlavideo():
-        print("Hello there!")
 
 
 
