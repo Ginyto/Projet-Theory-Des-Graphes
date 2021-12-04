@@ -78,8 +78,6 @@ graphe_test = Jarvis("test")
 #graphe_test.affichage()
 #graphe_test.matrice()
 
-print("Hello world!")
-
 
 
 
