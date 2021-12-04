@@ -71,8 +71,6 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
-        
-        print("Hello there")
 
 
 
