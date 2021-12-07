@@ -7,7 +7,6 @@ class Graphe:
     def __init__(self, name):
         self.name = name
         self.sommet = [] #Tableau d'objet sommet
-        self.chemin = []
         
     def fill(self,tab,cosa):
         self.tab.append(cosa)
