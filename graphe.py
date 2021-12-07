@@ -6,11 +6,11 @@ class Graphe:
     
     def __init__(self, name):
         self.name = name
-        self.sommet = []
-    
-    def fill_sommet(self, etat):
-        self.sommet.append(etat)
-    
+        self.sommet = [] #Tableau d'objet sommet
+        self.chemin = []
+        
+    def fill(self,tab,cosa):
+        self.tab.append(cosa)
     
         
 
