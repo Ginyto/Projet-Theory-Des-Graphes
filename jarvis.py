@@ -5,12 +5,14 @@ class Jarvis:
         print("Initialisation du fichier : "+fichier)
         
         self.fichier = fichier
-        Jarvis.boucleread(self)
+        self.graphe = Jarvis.boucleread(self)
         #Jarvis.lecture(self)
         #Jarvis.get_sommet(self)
         #Jarvis.get_arc(self)
         
         print("Initialisation terminée")
+        
+        return self.graphe
 
     def lecture(self):
         data = open("./graphes/"+self.fichier+".txt", "r")
@@ -71,6 +73,8 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
+        
+        return mat
     
     def fill(self,tab,cosa):
         tab.append(cosa)
