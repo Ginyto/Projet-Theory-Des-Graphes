@@ -7,15 +7,27 @@ class Jarvis:
         self.data = []
         #jarvis.boucleread()
         jarvis.lecture()
-        jarvis.affichage()
+        #Jarvis.affichage()
+        jarvis.doubletab()
         
         print("Initialisation terminée")
 
     def lecture(self):
         fiche = open("./graphes/"+self.fichier+".txt", "r")
+        
         for i in range(0,17):
-            self.data.append(int(fiche.readline(2)))
+            y = fiche.readline(2)
             
+            
+            if y != "\n":
+                x = int(y)
+                self.data.append(x)
+    
+    def doubletab(self):
+        
+        for i in range(len(self.data)):
+            print(i)
+        
 
 
     def affichage(self):
