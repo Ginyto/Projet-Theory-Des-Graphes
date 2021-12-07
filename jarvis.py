@@ -1,7 +1,7 @@
 
 class Jarvis:
     
-    def __init__(self, fichier):
+    def initialisation(self, fichier):
         print("Initialisation du fichier : "+fichier)
         
         self.fichier = fichier
@@ -71,10 +71,15 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
+    
+    def fill(self,tab,cosa):
+        tab.append(cosa)
 
 
+#jarvis = Jarvis()
 
-#graphe_test = Jarvis("test")
+#jarvis.initialisation("test")
+#jarvis = Jarvis()
 
 
 
