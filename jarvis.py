@@ -71,6 +71,9 @@ class Jarvis:
         mat = Jarvis.miniligne(datos)
         
         print(mat)
+    
+    def fill(tab,cosa):
+        tab.append(cosa)
 
 
 
