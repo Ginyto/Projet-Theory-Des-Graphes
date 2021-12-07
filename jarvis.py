@@ -1,22 +1,23 @@
-
 class Jarvis:
     
     def initialisation(self, fichier):
         print("Initialisation du fichier : "+fichier)
         
         self.fichier = fichier
-        Jarvis.boucleread(self)
-        #Jarvis.lecture(self)
-        #Jarvis.get_sommet(self)
-        #Jarvis.get_arc(self)
+        self.data = []
+        #jarvis.boucleread()
+        jarvis.lecture()
+        jarvis.affichage()
         
         print("Initialisation terminée")
 
     def lecture(self):
-        data = open("./graphes/"+self.fichier+".txt", "r")
-        self.data = data.readline()
-        return self.data
-    
+        fiche = open("./graphes/"+self.fichier+".txt", "r")
+        for i in range(0,17):
+            self.data.append(int(fiche.readline(2)))
+            
+
+
     def affichage(self):
         print(self.data)
         #print(self.sommet)
@@ -29,11 +30,11 @@ class Jarvis:
         self.arc = Jarvis.numerisation(self,0)
         
     def matrice(self):
-        mat = []
+        self.mat = []
         for i in range(self.sommet):
-            mat.append([0]*self.arc)
+            self.mat.append([0]*self.arc)
 
-        print(mat)
+        print(self.mat)
         
     def numerisation(self, pos):
         return int(self.data[pos])
@@ -72,13 +73,15 @@ class Jarvis:
         
         print(mat)
     
+    
+    
     def fill(self,tab,cosa):
         tab.append(cosa)
 
 
-#jarvis = Jarvis()
+jarvis = Jarvis()
 
-#jarvis.initialisation("test")
+jarvis.initialisation("test")
 #jarvis = Jarvis()
 
 
