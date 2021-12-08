@@ -4,20 +4,15 @@ class Graphe:
     
     jarvis = Jarvis()
     
-    def __init__(self):
-        self.name = ""
-        self.sommet = [] #Tableau d'objet sommet
-        self.sauvegarde = [[]]#graphe sous la forme d'un double tableau
+    def __init__(self, fichier):
+        self.name = fichier
+        self.jarvis.initialisation(fichier)
     
-    def start_graphe(self, fichier):
-        self.sauvgarde = self.jarvis.initialisation(fichier)
+    
 
+automate = Graphe("test")
 
-automate = Graphe()    
-
-automate.start_graphe("test")
-
-print(automate.sauvgarde)
+automate.jarvis.affichage(automate.jarvis.mat)
 
 
 
