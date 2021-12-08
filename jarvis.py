@@ -5,10 +5,16 @@ class Jarvis:
         
         self.fichier = fichier
         self.data = []
-        #jarvis.boucleread()
-        jarvis.lecture()
-        #Jarvis.affichage()
-        jarvis.doubletab()
+        
+        #Jarvis.boucleread()
+        Jarvis.lecture(self)
+        Jarvis.affichage(self, self.data)
+        
+        self.sommet = self.data[0]
+        self.arc = self.data[1]
+        
+        Jarvis.affichage(self, self.sommet)
+        Jarvis.affichage(self, self.arc)
         
         print("Initialisation terminée")
 
@@ -23,23 +29,11 @@ class Jarvis:
                 x = int(y)
                 self.data.append(x)
     
-    def doubletab(self):
-        
-        for i in range(len(self.data)):
-            print(i)
-        
 
 
-    def affichage(self):
-        print(self.data)
-        #print(self.sommet)
-        #print(self.arc)
+    def affichage(self,cible):
+        print(cible)
         
-    def get_sommet(self):
-        self.sommet = Jarvis.numerisation(self,0)
-    
-    def get_arc(self):
-        self.arc = Jarvis.numerisation(self,0)
         
     def matrice(self):
         self.mat = []
@@ -48,8 +42,6 @@ class Jarvis:
 
         print(self.mat)
         
-    def numerisation(self, pos):
-        return int(self.data[pos])
     
     def miniligne(ligne):
         mat = []
