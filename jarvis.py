@@ -3,6 +3,8 @@ class Jarvis:
     def initialisation(self, fichier):
         print("Initialisation du fichier : "+fichier)
         
+        Jarvis.saut_de_ligne(self)
+        
         self.fichier = fichier
         self.data = []
         
@@ -10,11 +12,15 @@ class Jarvis:
         Jarvis.lecture(self)
         Jarvis.affichage(self, self.data)
         
+        Jarvis.saut_de_ligne(self)
+        
         self.sommet = self.data[0]
         self.arc = self.data[1]
         
-        Jarvis.affichage(self, self.sommet)
-        Jarvis.affichage(self, self.arc)
+        Jarvis.matrice(self)
+        #Jarvis.affichage(self, self.sommet)
+        #Jarvis.affichage(self, self.arc)
+        Jarvis.saut_de_ligne(self)
         
         print("Initialisation terminée")
 
@@ -77,7 +83,8 @@ class Jarvis:
         
         print(mat)
     
-    
+    def saut_de_ligne(self):
+        print("\n --------------------------->\n")
     
     def fill(self,tab,cosa):
         tab.append(cosa)
