@@ -8,10 +8,12 @@ class Graphe:
     def __init__(self, fichier):
         self.name = fichier
         self.registre = []
+        self.poids = []
         self.jarvis.initialisation(fichier)
+        
         Graphe.sommatisation(self)
         Graphe.arctisation(self)
-        
+        Graphe.poidisation(self)
         
         
     def sommatisation(self):
@@ -31,6 +33,9 @@ class Graphe:
                     self.registre[i].chemin += self.jarvis.mat[j]
             
             print(self.registre[i].chemin)
+    
+    def poidisation(self):
+        
 
     
     
