@@ -6,12 +6,14 @@ class Jarvis:
         #Jarvis.saut_de_ligne(self)
         
         self.fichier = fichier
+
         self.data = []
         
         #Jarvis.boucleread()
         Jarvis.sizefiche(self) #recupere le nombre de sommet et d'arc
         Jarvis.lecture(self) # cree un tableau avec tout les valeur du fichier 1D
         #Jarvis.affichage(self, self.data) 
+
 
         #self.sommet = self.data[0]
         #self.arc = self.data[1]
@@ -80,11 +82,13 @@ class Jarvis:
             
             
         
+
             
 
 
     def saut_de_ligne(self):
         print("\n --------------------------->\n")
+
     
     def fill(self,tab,cosa):
         tab.append(cosa)
