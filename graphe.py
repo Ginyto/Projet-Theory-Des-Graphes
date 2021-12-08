@@ -12,6 +12,8 @@ class Graphe:
         Graphe.sommatisation(self)
         Graphe.arctisation(self)
         
+        
+        
     def sommatisation(self):
         for i in range(0, self.jarvis.sommet):
             y = Sommet(i) #création des sommet
@@ -20,7 +22,16 @@ class Graphe:
         #print(self.registre)
     
     def arctisation(self):
-        print("Hello there!")
+        for i in range(0, len(self.registre)):
+            print("index of registre -> ",i)
+            
+            for j in range(0, len(self.jarvis.mat)):
+                if i == self.jarvis.mat[j][0]:
+                    #print(self.jarvis.mat[j])
+                    self.registre[i].chemin += self.jarvis.mat[j]
+            
+            print(self.registre[i].chemin)
+
     
     
     
