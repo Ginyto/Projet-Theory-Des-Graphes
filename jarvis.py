@@ -76,6 +76,9 @@ class Jarvis:
         
         return mat
     
+    def saut_de_ligne(self):
+        print("Hello world")
+    
     def fill(self,tab,cosa):
         tab.append(cosa)
 
