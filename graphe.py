@@ -13,7 +13,7 @@ class Graphe:
         
         Graphe.sommatisation(self)
         Graphe.arctisation(self)
-        Graphe.poidisation(self)
+        Graphe.peser(self)
         
         
     def sommatisation(self):
@@ -34,8 +34,21 @@ class Graphe:
             
             #print(self.registre[i].chemin)
     
-    def poidisation(self):
-        print("Hello there!")
+    def peser(self):
+        for i in range(len(self.registre)):
+            
+            if len(self.registre[i].chemin) > 3:
+                print(self.registre[i].chemin)
+                
+                for k in range(len(self.registre[i].chemin)):
+                    if k%3 == 2:
+                        #print(self.registre[i].chemin[k])
+                        print("voici le poids ---->", self.registre[i].chemin[k])
+                    
+            
+            else:
+                print(self.registre[i].chemin)
+                print("voici le poids ---->", self.registre[i].chemin[2])
 
     
     
