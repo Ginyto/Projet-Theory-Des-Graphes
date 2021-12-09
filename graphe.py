@@ -44,11 +44,16 @@ class Graphe:
                     if k%3 == 2:
                         #print(self.registre[i].chemin[k])
                         print("voici le poids ---->", self.registre[i].chemin[k])
+                        self.poids.append(self.registre[i].chemin[k])
                     
             
             else:
                 print(self.registre[i].chemin)
                 print("voici le poids ---->", self.registre[i].chemin[2])
+                self.poids.append(self.registre[i].chemin[2])
+        
+        
+        print("----->",self.poids)
 
     
     
