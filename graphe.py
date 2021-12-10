@@ -11,53 +11,67 @@ class Graphe:
         self.poids = []
         self.jarvis.initialisation(fichier)
         
-        Graphe.sommatisation(self)
-        Graphe.arctisation(self)
-        Graphe.peser(self)
+        Graphe.crea_sommet(self)
+        Graphe.fill_sommet(self)
+        
+    
+    def aiguillage_sommet(self, num,content,aiguille):
+        for i in range(0, len(self.registre)):
+            if num == self.registre[i].nom:
+                #print("num == ", self.registre[i].nom)
+                if aiguille == 66:
+                    self.registre[i].next.append(content)
+                #print(self.registre[i].heavy)
+                if aiguille == 99:
+                    self.registre[i].heavy.append(content)
+    
+    
+    def affichage_sommet(self,num):
+        """permet l'affichage complet d'un sommet
+
+        :param num: numero d'identification
+        :type num: int
+        """
+        for i in range(0, len(self.registre)):
+            
+            if num == self.registre[i].nom:
+                print("---sommet--------->", self.registre[i].nom)
+                print("---destination---->", self.registre[i].next)            
+                print("---poids---------->", self.registre[i].heavy)
+                
+                
+    def fill_sommet(self):
+        
+        #print(self.jarvis.affichage(self.jarvis.mat))
+        for i in range(0,self.jarvis.sommet + 1):
+            #print("---sommet---->",self.jarvis.mat[i][0])
+            #print("---destination---->",self.jarvis.mat[i][1])
+            
+            Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][1],66)
+            
+            #print("---poids---->",self.jarvis.mat[i][2])
+            
+            Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][2],99)
+            
+            #print("\n")
+        
+        #Graphe.affichage_sommet(self,0)
+        #print("\n")
+        #Graphe.affichage_sommet(self,1)
+        #print("\n")
+        #Graphe.affichage_sommet(self,2)
+        #print("\n")
+        #Graphe.affichage_sommet(self,3)
+            
         
         
-    def sommatisation(self):
+        
+    def crea_sommet(self):
         for i in range(0, self.jarvis.sommet):
             y = Sommet(i) #création des sommet
             self.registre.append(y)
 
         #print(self.registre)
-    
-    def arctisation(self):
-        for i in range(0, len(self.registre)):
-            #print("index of registre -> ",i)
-            
-            for j in range(0, len(self.jarvis.mat)):
-                if i == self.jarvis.mat[j][0]:
-                    #print(self.jarvis.mat[j])
-                    self.registre[i].chemin += self.jarvis.mat[j]
-            
-            #print(self.registre[i].chemin)
-    
-    def peser(self):
-        for i in range(len(self.registre)):
-            
-            if len(self.registre[i].chemin) > 3:
-                print(self.registre[i].chemin)
-                
-                for k in range(len(self.registre[i].chemin)):
-                    if k%3 == 2:
-                        #print(self.registre[i].chemin[k])
-                        print("voici le poids ---->", self.registre[i].chemin[k])
-                        self.poids.append(self.registre[i].chemin[k])
-                    
-            
-            else:
-                print(self.registre[i].chemin)
-                print("voici le poids ---->", self.registre[i].chemin[2])
-                self.poids.append(self.registre[i].chemin[2])
-        
-        
-        print("----->",self.poids)
-
-    
-    
-    
 
 automate = Graphe("test")
 
