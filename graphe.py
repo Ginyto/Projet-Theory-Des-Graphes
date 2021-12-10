@@ -6,7 +6,7 @@ class Graphe:
     jarvis = Jarvis()
     
     def __init__(self, fichier):
-        """Initialisation du graphes qui cree tout les sommet et les remplist
+        """Initialisation du graphes qui cree tout les sommet et les remplir
 
         :param fichier: nom du fichier ou jarvis doit aller chercher le graphe
         :type fichier: string
