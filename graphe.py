@@ -18,7 +18,7 @@ class Graphe:
         
         Graphe.crea_sommet(self)
         Graphe.fill_sommet(self)
-        Graphe.all_affichage_sommet(self)
+        #Graphe.all_affichage_sommet(self)
         
     
     def aiguillage_sommet(self, num,content,aiguille):
