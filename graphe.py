@@ -13,9 +13,22 @@ class Graphe:
         
         Graphe.crea_sommet(self)
         Graphe.fill_sommet(self)
+        Graphe.all_affichage_sommet(self)
         
     
     def aiguillage_sommet(self, num,content,aiguille):
+        """permet de retrouver un sommet grace a son numero d'identification et de lui ajouter du contenue dans un des deux champs suivant : 
+        si 66 -> on ajoute dans next (prochain sommet)
+        si 99 -> on ajoute dans heavy (poids)
+
+        :param num: id
+        :type num: int
+        :param content: contenue
+        :type content: variable
+        :param aiguille: permet de choisir entre next et heavy
+        :type aiguille: int
+        """
+        
         for i in range(0, len(self.registre)):
             if num == self.registre[i].nom:
                 #print("num == ", self.registre[i].nom)
@@ -38,9 +51,23 @@ class Graphe:
                 print("---sommet--------->", self.registre[i].nom)
                 print("---destination---->", self.registre[i].next)            
                 print("---poids---------->", self.registre[i].heavy)
-                
-                
+    
+    def all_affichage_sommet(self):
+        """Affiche tout les sommet di registre
+        """
+        
+        print("================================\n\n")
+        
+        for i in range(0,self.jarvis.sommet):
+            Graphe.affichage_sommet(self,i)
+            print("\n")
+        
+        print("================================")
+            
+            
     def fill_sommet(self):
+        """permet de remplir les sommet dans les champs next (prochain sommet) et le poids
+        """
         
         #print(self.jarvis.affichage(self.jarvis.mat))
         for i in range(0,self.jarvis.sommet + 1):
@@ -63,10 +90,10 @@ class Graphe:
         #print("\n")
         #Graphe.affichage_sommet(self,3)
             
-        
-        
-        
+    
     def crea_sommet(self):
+        """permet de crée des sommet vierge selon les instruction de jarvis qui recupere le nombre de sommet
+        """
         for i in range(0, self.jarvis.sommet):
             y = Sommet(i) #création des sommet
             self.registre.append(y)
