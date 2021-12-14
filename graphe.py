@@ -6,10 +6,10 @@ class Graphe:
     jarvis = Jarvis()
     
     def __init__(self, fichier):
-        """Initialisation du graphes qui cree tout les sommet et les remplir
+        """__init__ constructeur de Graphe
 
-        :param fichier: nom du fichier ou jarvis doit aller chercher le graphe
-        :type fichier: string
+        Args:
+            fichier (Graphe): Tableau d'objet sommet
         """
         self.name = fichier
         self.registre = []
@@ -45,10 +45,10 @@ class Graphe:
     
     
     def affichage_sommet(self,num):
-        """permet l'affichage complet d'un sommet
+        """Affiche le sommet ainsi que tout ses attribut
 
-        :param num: numero d'identification
-        :type num: int
+        Args:
+            num (int): numeros du sommet a
         """
         for i in range(0, len(self.registre)):
             
@@ -58,7 +58,7 @@ class Graphe:
                 print("---poids---------->", self.registre[i].heavy)
     
     def all_affichage_sommet(self):
-        """Affiche tout les sommet di registre
+        """Affiche tout les sommet du graphes
         """
         
         print("================================\n\n")
