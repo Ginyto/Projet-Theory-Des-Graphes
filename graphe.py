@@ -104,13 +104,33 @@ class Graphe:
             self.registre.append(y)
 
         #print(self.registre)
+    
+    def CheckIfSommet(self, x):
+        if int(x) > 0 and int(x) < Graphe.jarvis.sommet:
+            return True
+    
+    def are_you_here(self, x, tab):
+        for i in range(len(tab)):
+            if x == tab[i]:
+                return True
+        
+        return False
+
+    def paseo(self, point_a, point_b):
+        
+        print("Je veux aller du sommet : ", self.registre[point_a].nom,"au ", self.registre[point_b].nom)
+        print()
+        self.affichage_sommet(point_a)
+        print()
+        self.affichage_sommet(point_b)
+        
+        if self.are_you_here(point_b, self.registre[point_a].next) == True:
+            print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
+
 
 automate = Graphe("test")
 
-automate.all_affichage_sommet()
-
-print(automate.jarvis.mat)
-
+automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)
 
 
