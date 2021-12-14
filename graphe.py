@@ -107,6 +107,9 @@ class Graphe:
 
 automate = Graphe("test")
 
+automate.all_affichage_sommet()
+
+print(automate.jarvis.mat)
 
 #automate.jarvis.affichage(automate.jarvis.mat)
 
