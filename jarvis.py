@@ -9,7 +9,7 @@ class Jarvis:
 
         self.data = []
         
-        
+        self.mat = []
         
         self.test = []
         
@@ -22,8 +22,8 @@ class Jarvis:
         #self.sommet = self.data[0]
         #self.arc = self.data[1]
         
-        Jarvis.matrice(self) #cree un tableau 2D pour les chemin (arc+poids)
-        #self.test = self.carré_mat(self.arc)
+        #Jarvis.matrice(self) #cree un tableau 2D pour les chemin (arc+poids)
+        self.mat = self.crea_mat(self.arc, 3)
         #Jarvis.affichage(self, self.sommet)
         #Jarvis.affichage(self, self.arc)
         #Jarvis.affichage(self, self.mat)
@@ -68,10 +68,10 @@ class Jarvis:
         for i in range(self.arc):
             self.mat.append([0]*3)
     
-    def carré_mat(self, n):
+    def crea_mat(self, n, m):
         tab = []
         for i in range(n):
-            tab.append([0]*n)
+            tab.append([0]*m)
         
         #print(tab)
         
@@ -108,9 +108,9 @@ class Jarvis:
         tab.append(cosa)
 
 
-#jarvis = Jarvis()
+jarvis = Jarvis()
 
-#jarvis.initialisation("test")
+jarvis.initialisation("test")
 #jarvis = Jarvis()
 
 
