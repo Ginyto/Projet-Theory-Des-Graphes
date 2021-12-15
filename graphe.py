@@ -14,6 +14,7 @@ class Graphe:
         self.name = fichier
         self.registre = []
         self.poids = []
+        self.matMg = []
         self.jarvis.initialisation(fichier)
         
         Graphe.crea_sommet(self)
@@ -138,6 +139,10 @@ class Graphe:
         if self.are_you_here(point_b, self.registre[point_a].next) == True:
             print()
             print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
+    
+    def matriceMg(self):
+        print("Hello, world!")
+        
 
 
 automate = Graphe("test")
