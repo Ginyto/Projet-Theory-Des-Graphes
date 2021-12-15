@@ -100,8 +100,12 @@ class Jarvis:
             
 
 
-    def saut_de_ligne(self):
-        print("\n --------------------------->\n")
+    def saut_de_ligne(self, text):
+        if text != "":
+            print("\n ---------------",text,"------------------->\n")
+        
+        else :
+            print("\n ----------------------------------->\n")
 
     
     def fill(self,tab,cosa):

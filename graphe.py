@@ -147,18 +147,18 @@ class Graphe:
     
     def affiche_mat(self, tab):
         for i in range(len(tab)):
-            print("|", end='')            
+            print("       ", end='')            
             for j in range(len(tab[i])) :
-                print(tab[i][j], end ="|")
+                print("",tab[i][j], end =" ")
             print()
 
     
     def fill_matriceMg(self):
+        self.jarvis.saut_de_ligne("graphe initiale")
+        
         self.affiche_mat(self.jarvis.mat)
         
-        self.jarvis.saut_de_ligne()
-        
-        
+        self.jarvis.saut_de_ligne("matrice MG")
         
         self.affiche_mat(self.mat_Mg)
         
