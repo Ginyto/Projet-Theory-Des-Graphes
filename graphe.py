@@ -141,11 +141,26 @@ class Graphe:
             print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
     
     def matriceMg(self):
+        """cree la matrice Mg vierge"""
         self.mat_Mg = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet,)
-        print(self.mat_Mg)
+        #print(self.mat_Mg)
+    
+    def affiche_mat(self, tab):
+        for i in range(len(tab)):
+            print("|", end='')            
+            for j in range(len(tab[i])) :
+                print(tab[i][j], end ="|")
+            print()
+
     
     def fill_matriceMg(self):
-        print(self.mat_Mg)
+        self.affiche_mat(self.jarvis.mat)
+        
+        self.jarvis.saut_de_ligne()
+        
+        
+        
+        self.affiche_mat(self.mat_Mg)
         
 
 
