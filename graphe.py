@@ -145,9 +145,9 @@ class Graphe:
         
 
 
-automate = Graphe("test")
+#automate = Graphe("test")
 
-automate.paseo(2,0)
+#automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)
 
 

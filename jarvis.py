@@ -9,6 +9,10 @@ class Jarvis:
 
         self.data = []
         
+        
+        
+        self.test = []
+        
         #Jarvis.boucleread()
         Jarvis.sizefiche(self) #recupere le nombre de sommet et d'arc
         Jarvis.lecture(self) # cree un tableau avec tout les valeur du fichier 1D
@@ -19,13 +23,14 @@ class Jarvis:
         #self.arc = self.data[1]
         
         Jarvis.matrice(self) #cree un tableau 2D pour les chemin (arc+poids)
+        #self.test = self.carré_mat(self.arc)
         #Jarvis.affichage(self, self.sommet)
         #Jarvis.affichage(self, self.arc)
         #Jarvis.affichage(self, self.mat)
         
         Jarvis.fill_arc(self)#Remplis le tableau 2D
         
-        #Jarvis.affichage(self, self.mat)
+        Jarvis.affichage(self, self.mat)
         
 
         print("Initialisation terminée")
@@ -62,6 +67,15 @@ class Jarvis:
         self.mat = []
         for i in range(self.arc):
             self.mat.append([0]*3)
+    
+    def carré_mat(self, n):
+        tab = []
+        for i in range(n):
+            tab.append([0]*n)
+        
+        #print(tab)
+        
+        return tab
     
     def fill_arc(self):
         j = 0
