@@ -146,9 +146,17 @@ class Graphe:
         #print(self.mat_Mg)
     
     def affiche_mat(self, tab):
+        print("           ", end = "")
+        
+        for i in range(len(tab[0])):
+            print(i," ", end="")
+        
+        print()
+        
         for i in range(len(tab)):
-            print("       ", end='')            
+            print("       ",i,"", end='')            
             for j in range(len(tab[i])):
+
                 print("",tab[i][j], end =" ")
             print()
     
@@ -165,10 +173,13 @@ class Graphe:
         
         self.jarvis.saut_de_ligne("matrice MG")
         
-        self.mat_Mg[2][0] = 25
-        
-        
-        
+        for i in range(len(self.jarvis.mat)):
+            x = self.jarvis.mat[i][0]
+            y = self.jarvis.mat[i][1]
+            poids = self.jarvis.mat[i][2]
+            
+            self.mat_Mg[x][y] = poids
+                
         self.affiche_mat(self.mat_Mg)
         
 
