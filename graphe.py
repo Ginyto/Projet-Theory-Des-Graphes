@@ -50,6 +50,8 @@ class Graphe:
         Args:
             num (int): numeros du sommet a
         """
+        print()
+        
         for i in range(0, len(self.registre)):
             
             if num == self.registre[i].nom:
@@ -110,6 +112,15 @@ class Graphe:
             return True
     
     def are_you_here(self, x, tab):
+        """check si x est contenue dans tab
+
+        Args:
+            x (int): nom du sommet 
+            tab (int): tableau de int
+
+        Returns:
+            Booléen: True si occurence
+        """
         for i in range(len(tab)):
             if x == tab[i]:
                 return True
@@ -118,13 +129,14 @@ class Graphe:
 
     def paseo(self, point_a, point_b):
         
-        print("Je veux aller du sommet : ", self.registre[point_a].nom,"au ", self.registre[point_b].nom)
-        print()
+        print("Je veux aller du sommet : ", self.registre[point_a].nom,"au", self.registre[point_b].nom)
+        
         self.affichage_sommet(point_a)
-        print()
+        
         self.affichage_sommet(point_b)
         
         if self.are_you_here(point_b, self.registre[point_a].next) == True:
+            print()
             print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
 
 
