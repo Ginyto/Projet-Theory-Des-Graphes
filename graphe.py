@@ -154,7 +154,7 @@ class Graphe:
         print()
         
         for i in range(len(tab)):
-            print("       ",i,"", end='')            
+            print("       ",i,"|", end='')            
             for j in range(len(tab[i])):
 
                 print("",tab[i][j], end =" ")
