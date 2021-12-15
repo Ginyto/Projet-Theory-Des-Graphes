@@ -4,6 +4,7 @@ from sommet import *
 class Graphe:
     
     jarvis = Jarvis()
+    INF = "infini"
     
     def __init__(self, fichier):
         """__init__ constructeur de Graphe
@@ -14,7 +15,6 @@ class Graphe:
         self.name = fichier
         self.registre = []
         self.poids = []
-        self.matMg = []
         self.jarvis.initialisation(fichier)
         
         Graphe.crea_sommet(self)
@@ -141,11 +141,18 @@ class Graphe:
             print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
     
     def matriceMg(self):
-        print("Hello, world!")
+        self.mat_Mg = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet,)
+        print(self.mat_Mg)
+    
+    def fill_matriceMg(self):
+        print(self.mat_Mg)
         
 
 
-#automate = Graphe("test")
+automate = Graphe("test")
+
+automate.matriceMg()
+automate.fill_matriceMg()
 
 #automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)

@@ -30,7 +30,7 @@ class Jarvis:
         
         Jarvis.fill_arc(self)#Remplis le tableau 2D
         
-        Jarvis.affichage(self, self.mat)
+        #Jarvis.affichage(self, self.mat)
         
 
         print("Initialisation terminée")
@@ -108,9 +108,9 @@ class Jarvis:
         tab.append(cosa)
 
 
-jarvis = Jarvis()
+#jarvis = Jarvis()
 
-jarvis.initialisation("test")
+#jarvis.initialisation("test")
 #jarvis = Jarvis()
 
 
