@@ -1,5 +1,6 @@
 class Jarvis:
     
+    
     def initialisation(self, fichier):
         print("Initialisation du fichier : "+fichier)
         

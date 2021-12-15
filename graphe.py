@@ -4,7 +4,7 @@ from sommet import *
 class Graphe:
     
     jarvis = Jarvis()
-    INF = "infini"
+    INF = "inf"
     
     def __init__(self, fichier):
         """__init__ constructeur de Graphe
@@ -146,18 +146,16 @@ class Graphe:
         #print(self.mat_Mg)
     
     def affiche_mat(self, tab):
-        print("           ", end = "")
-        
-        for i in range(len(tab[0])):
-            print(i+1," ", end="")
-        
-        print()
-        
         for i in range(len(tab)):
-            print("       ",i+1,"", end='')            
-            for j in range(len(tab[i])) :
+            print("       ", end='')            
+            for j in range(len(tab[i])):
                 print("",tab[i][j], end =" ")
             print()
+    
+    def fill_2Dtab_with(self, tab, x):
+        for i in range(len(tab)):
+            for j in range(len(tab[i])):
+                tab[i][j] = x
 
     
     def fill_matriceMg(self):
@@ -166,6 +164,8 @@ class Graphe:
         self.affiche_mat(self.jarvis.mat)
         
         self.jarvis.saut_de_ligne("matrice MG")
+        
+        self.mat_Mg[2][0] = 25
         
         
         
