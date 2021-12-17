@@ -184,10 +184,10 @@ class Graphe:
         
 
 
-automate = Graphe("test")
+#automate = Graphe("test")
 
-automate.matriceMg()
-automate.fill_matriceMg()
+#automate.matriceMg()
+#automate.fill_matriceMg()
 
 #automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)
