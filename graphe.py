@@ -143,10 +143,11 @@ class Graphe:
     def matriceMg(self):
         """cree la matrice Mg vierge"""
         self.mat_Mg = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet,)
+        #self.affiche_mat(self.mat_Mg)
         #print(self.mat_Mg)
     
     def affiche_mat(self, tab):
-        print("           ", end = "")
+        print("            ", end = "")
         
         for i in range(len(tab[0])):
             print(i," ", end="")
@@ -178,16 +179,17 @@ class Graphe:
             y = self.jarvis.mat[i][1]
             poids = self.jarvis.mat[i][2]
             
-            self.mat_Mg[x][y] = poids
-                
+            self.mat_Mg[x-1][y-1] = poids
+        
+        
         self.affiche_mat(self.mat_Mg)
         
 
 
-#automate = Graphe("test")
+automate = Graphe("test")
 
-#automate.matriceMg()
-#automate.fill_matriceMg()
+automate.matriceMg()
+automate.fill_matriceMg()
 
 #automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)

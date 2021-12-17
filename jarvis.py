@@ -4,7 +4,7 @@ class Jarvis:
     def initialisation(self, fichier):
         print("Initialisation du fichier : "+fichier)
         
-        self.saut_de_ligne("test")
+        #self.saut_de_ligne("test")
         
         self.fichier = fichier
 
@@ -31,7 +31,7 @@ class Jarvis:
         
         Jarvis.fill_arc(self)#Remplis le tableau 2D
         
-        self.affichage(self.mat)
+        #self.affichage(self.mat)
         
 
         print("Initialisation terminée")
@@ -112,9 +112,9 @@ class Jarvis:
         tab.append(cosa)
 
 
-jarvis = Jarvis()
+#jarvis = Jarvis()
 
-jarvis.initialisation("test")
+#jarvis.initialisation("test")
 #jarvis = Jarvis()
 
 
