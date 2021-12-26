@@ -183,7 +183,6 @@ class Graphe:
         
         
         self.affiche_mat(self.mat_Mg)
-        
 
 
 automate = Graphe("test")
