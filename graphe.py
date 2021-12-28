@@ -79,25 +79,25 @@ class Graphe:
         """
         
         #print(self.jarvis.affichage(self.jarvis.mat))
-        for i in range(0,self.jarvis.sommet + 1):
-            #print("---sommet---->",self.jarvis.mat[i][0])
-            #print("---destination---->",self.jarvis.mat[i][1])
+        for i in range(0,self.jarvis.arc):
+            print("---sommet---->",self.jarvis.mat[i][0])
+            print("---destination---->",self.jarvis.mat[i][1])
             
             Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][1],66)
             
-            #print("---poids---->",self.jarvis.mat[i][2])
+            print("---poids---->",self.jarvis.mat[i][2])
             
             Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][2],99)
             
-            #print("\n")
+            print("\n")
         
-        #Graphe.affichage_sommet(self,0)
-        #print("\n")
-        #Graphe.affichage_sommet(self,1)
-        #print("\n")
-        #Graphe.affichage_sommet(self,2)
-        #print("\n")
-        #Graphe.affichage_sommet(self,3)
+        Graphe.affichage_sommet(self,0)
+        print("\n")
+        Graphe.affichage_sommet(self,1)
+        print("\n")
+        Graphe.affichage_sommet(self,2)
+        print("\n")
+        Graphe.affichage_sommet(self,3)
             
     
     def crea_sommet(self):
@@ -145,7 +145,9 @@ class Graphe:
             point_b (int): sommet b
         """
         
-        print("Je veux aller du sommet : ", self.registre[point_a].nom,"au", self.registre[point_b].nom)
+        self.jarvis.saut_de_ligne("paseo")
+        
+        print("Je veux aller du sommet", self.registre[point_a].nom,"au", self.registre[point_b].nom)
         
         self.affichage_sommet(point_a)
         
@@ -154,6 +156,10 @@ class Graphe:
         if self.are_you_here(point_b, self.registre[point_a].next) == True:
             print()
             print(point_a,"--------", self.registre[point_a].heavy,"------>",point_b)
+        
+        else:
+            print()
+            print("Il n'y a pas de chemin directe entre ces 2 sommets")
     
     def matriceMg(self):
         """cree la matrice Mg vierge"""
@@ -228,9 +234,11 @@ automate = Graphe("test")
 
 automate.matriceMg()
 automate.fill_matriceMg()
-automate.replace_matrice(0, INF)
+#automate.replace_matrice(0, INF)
 
-#automate.paseo(2,0)
+#automate.paseo(2,3)
+
+#automate.affichage_sommet(0)
 #automate.jarvis.affichage(automate.jarvis.mat)
 
 
