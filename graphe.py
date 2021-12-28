@@ -196,11 +196,11 @@ class Graphe:
     def fill_matriceMg(self):
         """Remplie la matrice Mg en partant de la matrice initiale
         """
-        self.jarvis.saut_de_ligne("")
+        self.jarvis.saut_de_ligne("mat initiale")
         
         self.affiche_mat(self.jarvis.mat)
         
-        self.jarvis.saut_de_ligne("")
+        self.jarvis.saut_de_ligne("mat Mg")
         
         for i in range(len(self.jarvis.mat)):
             x = self.jarvis.mat[i][0]
@@ -212,14 +212,15 @@ class Graphe:
         
         self.affiche_mat(self.mat_Mg)
     
-    def inf_matrice(self):
-        """remplace les 0 par ∞
+    def replace_matrice(self, x, y):
+        """remplace les x par y sans toucher à la diagonale
         """
         for i in range(len(self.mat_Mg)):
             for j in range(len(self.mat_Mg[i])):
-                if self.mat_Mg[i][j] == 0:
-                    self.mat_Mg[i][j] = INF
-        self.jarvis.saut_de_ligne("")
+                if self.mat_Mg[i][j] == x and i != j:
+                    self.mat_Mg[i][j] = y
+                    
+        self.jarvis.saut_de_ligne("mat ∞")
         self.affiche_mat(self.mat_Mg)
 
 
@@ -227,7 +228,7 @@ automate = Graphe("test")
 
 automate.matriceMg()
 automate.fill_matriceMg()
-automate.inf_matrice()
+automate.replace_matrice(0, INF)
 
 #automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)
