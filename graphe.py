@@ -110,6 +110,14 @@ class Graphe:
         #print(self.registre)
     
     def CheckIfSommet(self, x):
+        """check si le sommet est present dans le graphes
+
+        Args:
+            x (int): sommet x
+
+        Returns:
+            [bool]: renvoie true si le sommet x existe&
+        """
         if int(x) > 0 and int(x) < Graphe.jarvis.sommet:
             return True
     
@@ -130,6 +138,12 @@ class Graphe:
         return False
 
     def paseo(self, point_a, point_b):
+        """Voyage entre 2 sommet avec le poids
+
+        Args:
+            point_a (int): sommet a
+            point_b (int): sommet b
+        """
         
         print("Je veux aller du sommet : ", self.registre[point_a].nom,"au", self.registre[point_b].nom)
         
@@ -148,6 +162,11 @@ class Graphe:
         #print(self.mat_Mg)
     
     def affiche_mat(self, tab):
+        """Affiche la matrice
+
+        Args:
+            tab (tableau 2D): matrice à afficher
+        """
         print("            ", end = "")
         
         for i in range(len(tab[0])):
@@ -163,12 +182,20 @@ class Graphe:
             print()
     
     def fill_2Dtab_with(self, tab, x):
+        """remplie un tableau 2D avec la valeur de x    
+
+        Args:
+            tab (tab): tableau en parametre
+            x (int): variable de remplissage
+        """
         for i in range(len(tab)):
             for j in range(len(tab[i])):
                 tab[i][j] = x
 
     
     def fill_matriceMg(self):
+        """Remplie la matrice Mg en partant de la matrice initiale
+        """
         self.jarvis.saut_de_ligne("")
         
         self.affiche_mat(self.jarvis.mat)
@@ -186,6 +213,8 @@ class Graphe:
         self.affiche_mat(self.mat_Mg)
     
     def inf_matrice(self):
+        """remplace les 0 par ∞
+        """
         for i in range(len(self.mat_Mg)):
             for j in range(len(self.mat_Mg[i])):
                 if self.mat_Mg[i][j] == 0:
