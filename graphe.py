@@ -234,7 +234,7 @@ automate = Graphe("test")
 
 automate.matriceMg()
 automate.fill_matriceMg()
-#automate.replace_matrice(0, INF)
+automate.replace_matrice(0, INF)
 
 #automate.paseo(2,3)
 
