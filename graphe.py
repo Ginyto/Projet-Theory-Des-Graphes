@@ -4,7 +4,8 @@ from sommet import *
 class Graphe:
     
     jarvis = Jarvis()
-    INF = "inf"
+    global INF 
+    INF = "∞"
     
     def __init__(self, fichier):
         """__init__ constructeur de Graphe
@@ -168,11 +169,11 @@ class Graphe:
 
     
     def fill_matriceMg(self):
-        self.jarvis.saut_de_ligne("graphe initiale")
+        self.jarvis.saut_de_ligne("")
         
         self.affiche_mat(self.jarvis.mat)
         
-        self.jarvis.saut_de_ligne("matrice MG")
+        self.jarvis.saut_de_ligne("")
         
         for i in range(len(self.jarvis.mat)):
             x = self.jarvis.mat[i][0]
@@ -183,12 +184,21 @@ class Graphe:
         
         
         self.affiche_mat(self.mat_Mg)
+    
+    def inf_matrice(self):
+        for i in range(len(self.mat_Mg)):
+            for j in range(len(self.mat_Mg[i])):
+                if self.mat_Mg[i][j] == 0:
+                    self.mat_Mg[i][j] = INF
+        self.jarvis.saut_de_ligne("")
+        self.affiche_mat(self.mat_Mg)
 
 
 automate = Graphe("test")
 
 automate.matriceMg()
 automate.fill_matriceMg()
+automate.inf_matrice()
 
 #automate.paseo(2,0)
 #automate.jarvis.affichage(automate.jarvis.mat)
