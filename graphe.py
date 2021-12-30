@@ -230,7 +230,7 @@ class Graphe:
         self.affiche_mat(self.mat_Mg)
 
 
-automate = Graphe("test")
+automate = Graphe("1")
 
 automate.matriceMg()
 automate.fill_matriceMg()

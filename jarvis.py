@@ -52,7 +52,9 @@ class Jarvis:
         
         for i in range(0,(self.arc*3)+3):
             y = fiche.readline(2)
+            print(y)
             if y != "\n":
+                #print(y)
                 x = int(y)
                 self.data.append(x)
             
@@ -114,7 +116,7 @@ class Jarvis:
 
 #jarvis = Jarvis()
 
-#jarvis.initialisation("test")
+#jarvis.initialisation("7")
 #jarvis = Jarvis()
 
 
