@@ -227,7 +227,7 @@ class Graphe:
     def fill_matdist(self):
         for i in range(len(self.mat_Mg)):
             for j in range(len(self.mat_Mg[i])):
-                if self.mat_Mg[i][j] != 0:
+                if self.mat_Mg[i][j] != 0 and self.mat_Mg[i][j] != INF:
                     self.matdist[i][j] = i
         
         self.jarvis.saut_de_ligne("matrice diste init")
