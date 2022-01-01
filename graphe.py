@@ -225,26 +225,34 @@ class Graphe:
         self.affiche_mat(self.mat_Mg)
     
     def fill_matdist(self):
-        
-    
-    def replace_matrice(self, x, y):
-        """remplace les x par y sans toucher à la diagonale
-        """
         for i in range(len(self.mat_Mg)):
             for j in range(len(self.mat_Mg[i])):
-                if self.mat_Mg[i][j] == x and i != j:
-                    self.mat_Mg[i][j] = y
+                if self.mat_Mg[i][j] != 0:
+                    self.matdist[i][j] = i
+        
+        self.jarvis.saut_de_ligne("matrice diste init")
+        self.affiche_mat(self.matdist)
+                
+    
+    def replace_matrice(self,tab, x, y):
+        """remplace les x par y sans toucher à la diagonale
+        """
+        for i in range(len(tab)):
+            for j in range(len(tab[i])):
+                if tab[i][j] == x and i != j:
+                    tab[i][j] = y
                     
         self.jarvis.saut_de_ligne("mat ∞")
-        self.affiche_mat(self.mat_Mg)
+        self.affiche_mat(tab)
 
 
 automate = Graphe("1")
 
 automate.matriceMg()
 automate.fill_matriceMg()
-automate.replace_matrice(0, INF)
+automate.replace_matrice(automate.mat_Mg,0, INF)
 automate.matrice_dist()
+automate.fill_matdist()
 
 #automate.paseo(2,3)
 
