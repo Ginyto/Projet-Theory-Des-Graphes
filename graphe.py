@@ -224,6 +224,9 @@ class Graphe:
         
         self.affiche_mat(self.mat_Mg)
     
+    def fill_matdist(self):
+        
+    
     def replace_matrice(self, x, y):
         """remplace les x par y sans toucher à la diagonale
         """
