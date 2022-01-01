@@ -80,24 +80,24 @@ class Graphe:
         
         #print(self.jarvis.affichage(self.jarvis.mat))
         for i in range(0,self.jarvis.arc):
-            print("---sommet---->",self.jarvis.mat[i][0])
-            print("---destination---->",self.jarvis.mat[i][1])
+            #print("---sommet---->",self.jarvis.mat[i][0])
+            #print("---destination---->",self.jarvis.mat[i][1])
             
             Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][1],66)
             
-            print("---poids---->",self.jarvis.mat[i][2])
+            #print("---poids---->",self.jarvis.mat[i][2])
             
             Graphe.aiguillage_sommet(self,self.jarvis.mat[i][0],self.jarvis.mat[i][2],99)
             
-            print("\n")
+            #print("\n")
         
-        Graphe.affichage_sommet(self,0)
-        print("\n")
-        Graphe.affichage_sommet(self,1)
-        print("\n")
-        Graphe.affichage_sommet(self,2)
-        print("\n")
-        Graphe.affichage_sommet(self,3)
+        #Graphe.affichage_sommet(self,0)
+        #print("\n")
+        #Graphe.affichage_sommet(self,1)
+        #print("\n")
+        #Graphe.affichage_sommet(self,2)
+        #print("\n")
+        #Graphe.affichage_sommet(self,3)
             
     
     def crea_sommet(self):
@@ -163,9 +163,15 @@ class Graphe:
     
     def matriceMg(self):
         """cree la matrice Mg vierge"""
-        self.mat_Mg = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet,)
+        self.mat_Mg = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet)
         #self.affiche_mat(self.mat_Mg)
         #print(self.mat_Mg)
+    
+    def matrice_dist(self):
+        self.matdist = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet)
+        self.fill_2Dtab_with(self.matdist, -1)
+        self.jarvis.saut_de_ligne("matrice distances")
+        self.affiche_mat(self.matdist)
     
     def affiche_mat(self, tab):
         """Affiche la matrice
@@ -230,11 +236,12 @@ class Graphe:
         self.affiche_mat(self.mat_Mg)
 
 
-#automate = Graphe("1")
+automate = Graphe("1")
 
-#automate.matriceMg()
-#automate.fill_matriceMg()
-#automate.replace_matrice(0, INF)
+automate.matriceMg()
+automate.fill_matriceMg()
+automate.replace_matrice(0, INF)
+automate.matrice_dist()
 
 #automate.paseo(2,3)
 

@@ -52,7 +52,7 @@ class Jarvis:
         
         for i in range(0,(self.arc*4)):
             y = fiche.readline(2)
-            print("y = ",y)
+            #print("y = ",y)
             if y != "\n" and y != "":
                 #print("y prit dans le tab = ",y)
                 x = int(y)
