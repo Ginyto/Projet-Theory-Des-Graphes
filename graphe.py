@@ -230,11 +230,11 @@ class Graphe:
         self.affiche_mat(self.mat_Mg)
 
 
-automate = Graphe("1")
+#automate = Graphe("1")
 
-automate.matriceMg()
-automate.fill_matriceMg()
-automate.replace_matrice(0, INF)
+#automate.matriceMg()
+#automate.fill_matriceMg()
+#automate.replace_matrice(0, INF)
 
 #automate.paseo(2,3)
 
