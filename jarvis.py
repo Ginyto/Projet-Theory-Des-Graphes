@@ -114,9 +114,9 @@ class Jarvis:
         tab.append(cosa)
 
 
-jarvis = Jarvis()
+#jarvis = Jarvis()
 
-jarvis.initialisation("4")
+#jarvis.initialisation("13")
 #jarvis = Jarvis()
 
 
