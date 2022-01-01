@@ -50,11 +50,11 @@ class Jarvis:
         fiche = open("./graphes/"+self.fichier+".txt", "r")
         
         
-        for i in range(0,(self.arc*3)+3):
+        for i in range(0,(self.arc*4)):
             y = fiche.readline(2)
             print("y = ",y)
             if y != "\n" and y != "":
-                print("y prit dans le tab = ",y)
+                #print("y prit dans le tab = ",y)
                 x = int(y)
                 self.data.append(x)
             
@@ -116,7 +116,7 @@ class Jarvis:
 
 jarvis = Jarvis()
 
-jarvis.initialisation("1")
+jarvis.initialisation("4")
 #jarvis = Jarvis()
 
 
