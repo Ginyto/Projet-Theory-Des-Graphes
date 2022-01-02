@@ -4,7 +4,8 @@ from sommet import *
 class Graphe:
     
     jarvis = Jarvis()
-    global INF 
+    
+    global INF
     INF = "∞"
     
     def __init__(self, fichier):
@@ -18,10 +19,16 @@ class Graphe:
         self.poids = []
         self.jarvis.initialisation(fichier)
         
-        Graphe.crea_sommet(self)
-        Graphe.fill_sommet(self)
+        self.crea_sommet()
+        self.fill_sommet()
         #Graphe.all_affichage_sommet(self)
         
+        self.matriceMg()
+        self.fill_matriceMg()
+        self.replace_matrice(self.mat_Mg,0, INF)
+        self.matrice_camino()
+        self.fill_camino()
+    
     
     def aiguillage_sommet(self, num,content,aiguille):
         """permet de retrouver un sommet grace a son numero d'identification et de lui ajouter du contenue dans un des deux champs suivant : 
@@ -167,11 +174,11 @@ class Graphe:
         #self.affiche_mat(self.mat_Mg)
         #print(self.mat_Mg)
     
-    def matrice_dist(self):
-        self.matdist = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet)
-        self.fill_2Dtab_with(self.matdist, -1)
-        self.jarvis.saut_de_ligne("matrice distances")
-        self.affiche_mat(self.matdist)
+    def matrice_camino(self):
+        self.camino = self.jarvis.crea_mat(self.jarvis.sommet,self.jarvis.sommet)
+        self.fill_2Dtab_with(self.camino, -1)
+        #self.jarvis.saut_de_ligne("camino")
+        #self.affiche_mat(self.camino)
     
     def affiche_mat(self, tab):
         """Affiche la matrice
@@ -212,7 +219,7 @@ class Graphe:
         
         self.affiche_mat(self.jarvis.mat)
         
-        self.jarvis.saut_de_ligne("mat Mg")
+        #self.jarvis.saut_de_ligne("mat Mg")
         
         for i in range(len(self.jarvis.mat)):
             x = self.jarvis.mat[i][0]
@@ -222,16 +229,16 @@ class Graphe:
             self.mat_Mg[x-1][y-1] = poids
         
         
-        self.affiche_mat(self.mat_Mg)
+        #self.affiche_mat(self.mat_Mg)
     
-    def fill_matdist(self):
+    def fill_camino(self):
         for i in range(len(self.mat_Mg)):
             for j in range(len(self.mat_Mg[i])):
                 if self.mat_Mg[i][j] != 0 and self.mat_Mg[i][j] != INF:
-                    self.matdist[i][j] = i
+                    self.camino[i][j] = i
         
-        self.jarvis.saut_de_ligne("matrice diste init")
-        self.affiche_mat(self.matdist)
+        self.jarvis.saut_de_ligne("camino")
+        self.affiche_mat(self.camino)
                 
     
     def replace_matrice(self,tab, x, y):
@@ -244,15 +251,16 @@ class Graphe:
                     
         self.jarvis.saut_de_ligne("mat ∞")
         self.affiche_mat(tab)
+    
+    def floydwarshall(self):
+        print("floyd warshall")
 
 
 automate = Graphe("1")
 
-automate.matriceMg()
-automate.fill_matriceMg()
-automate.replace_matrice(automate.mat_Mg,0, INF)
-automate.matrice_dist()
-automate.fill_matdist()
+automate.floydwarshall()
+
+
 
 #automate.paseo(2,3)
 
