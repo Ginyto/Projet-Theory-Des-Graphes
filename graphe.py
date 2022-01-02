@@ -268,22 +268,28 @@ class Graphe:
                         self.jarvis.saut_de_ligne("explications")
                         print("point de départ",first ,"à raccourcis",way," =",self.mat_Mg[first][way])
                         print("point de racourcis",way, "à arrivée",last, " =",self.mat_Mg[way][last], "somme =>",self.mat_Mg[first][way] + self.mat_Mg[way][last])
-                        print("point de départ",first, "à arrivé",last, " =",self.mat_Mg[first][last],">",self.mat_Mg[first][way] + self.mat_Mg[way][last])
+                        print("point de départ",first, "à arrivé",last, " =",self.mat_Mg[first][last],">",self.mat_Mg[first][way] + self.mat_Mg[way][last],"\n")
                         
                         self.mat_Mg[first][last] = self.mat_Mg[first][way] + self.mat_Mg[way][last]
                         print("Nouveau poids entre",first,"et",last,"=",self.mat_Mg[first][way] + self.mat_Mg[way][last])
                         self.camino[first][last] = self.camino[way][last]
+                        print("Nouveau chemin entre",first,"et",last,"passe par",self.camino[way][last])
+                        
+                        self.jarvis.saut_de_ligne("cam")
+                        self.affiche_mat(self.camino)
+                        self.jarvis.saut_de_ligne("Mg")
+                        self.affiche_mat(self.mat_Mg)
+                    
+                    
+                    if self.mat_Mg[first][first] < 0:
+                        print("Cycle absorbant du sommet", first)
+                    
+                    
                 
-                if self.mat_Mg[first][first] < 0:
-                    print("Cycle absorbant")
             
-            self.jarvis.saut_de_ligne("cam")
-            self.affiche_mat(self.camino)
-            self.jarvis.saut_de_ligne("Mg")
-            self.affiche_mat(self.mat_Mg)
 
 
-automate = Graphe("1")
+automate = Graphe("13")
 
 automate.floydwarshall()
 
