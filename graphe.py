@@ -196,14 +196,14 @@ class Graphe:
         print()
         
         for i in range(len(tab)):
-            print("       ",i,"|", end='')            
+            print("       ",i,"|", end='')
             for j in range(len(tab[i])):
 
                 print("",tab[i][j], end =" ")
             print()
     
     def fill_2Dtab_with(self, tab, x):
-        """remplie un tableau 2D avec la valeur de x    
+        """remplie un tableau 2D avec la valeur de x
 
         Args:
             tab (tab): tableau en parametre
@@ -228,7 +228,7 @@ class Graphe:
             y = self.jarvis.mat[i][1]
             poids = self.jarvis.mat[i][2]
             
-            print("x =",x,"et y =", y,"et poids =",poids)
+            #print("x =",x,"et y =", y,"et poids =",poids)
             
             self.mat_Mg[x][y] = poids
         
@@ -279,17 +279,23 @@ class Graphe:
                         self.affiche_mat(self.camino)
                         self.jarvis.saut_de_ligne("Mg")
                         self.affiche_mat(self.mat_Mg)
-                    
-                    
-                    if self.mat_Mg[first][first] < 0:
-                        print("Cycle absorbant du sommet", first)
-                    
-                    
-                
+        
+        self.absorption()
+    
+    def absorption(self):
+        self.circuit = False
+        somme = 0
+        
+        for i in range(len(self.mat_Mg)):
+            for j in range(len(self.mat_Mg[i])):
+                if self.mat_Mg[i][j] != INF and i != j:
+                    somme += self.mat_Mg[i][j]
+        
+        print("voici la somme ", somme)
             
 
 
-automate = Graphe("13")
+automate = Graphe("1")
 
 automate.floydwarshall()
 
