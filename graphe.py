@@ -6,7 +6,7 @@ class Graphe:
     jarvis = Jarvis()
     
     global INF
-    INF = "∞"
+    INF = float('inf')
     
     def __init__(self, fichier):
         """__init__ constructeur de Graphe
@@ -28,6 +28,10 @@ class Graphe:
         self.replace_matrice(self.mat_Mg,0, INF)
         self.matrice_camino()
         self.fill_camino()
+        self.jarvis.saut_de_ligne("init")
+        self.affiche_mat(self.jarvis.mat)
+        self.jarvis.saut_de_ligne("mat")
+        self.affiche_mat(self.mat_Mg)
     
     
     def aiguillage_sommet(self, num,content,aiguille):
@@ -186,6 +190,8 @@ class Graphe:
         Args:
             tab (tableau 2D): matrice à afficher
         """
+        
+        
         print("            ", end = "")
         
         for i in range(len(tab[0])):
@@ -215,9 +221,9 @@ class Graphe:
     def fill_matriceMg(self):
         """Remplie la matrice Mg en partant de la matrice initiale
         """
-        self.jarvis.saut_de_ligne("mat initiale")
+        #self.jarvis.saut_de_ligne("mat initiale")
         
-        self.affiche_mat(self.jarvis.mat)
+        #self.affiche_mat(self.jarvis.mat)
         
         #self.jarvis.saut_de_ligne("mat Mg")
         
@@ -226,7 +232,9 @@ class Graphe:
             y = self.jarvis.mat[i][1]
             poids = self.jarvis.mat[i][2]
             
-            self.mat_Mg[x-1][y-1] = poids
+            print("x =",x,"et y =", y,"et poids =",poids)
+            
+            self.mat_Mg[x][y] = poids
         
         
         #self.affiche_mat(self.mat_Mg)
@@ -253,12 +261,28 @@ class Graphe:
         self.affiche_mat(tab)
     
     def floydwarshall(self):
-        print("floyd warshall")
+        
+        for way in range(self.jarvis.sommet):
+            for first in range(self.jarvis.sommet):
+                for last in range(self.jarvis.sommet):
+                    #si le chemin parcouru entre a et b en passant par c est inferieur au parcour a et b alors on update le chemin a et b
+                    if self.mat_Mg[first][way] + self.mat_Mg[way][last] < self.mat_Mg[first][last]:
+                        self.mat_Mg[first][way] = self.mat_Mg[first][way] + self.mat_Mg[way][last]
+                        self.camino[first][last] = self.camino[way][last]
+                
+                if self.mat_Mg[first][first] < 0:
+                    print("Cycle absorbant")
+            
+            self.jarvis.saut_de_ligne("cam")
+            self.affiche_mat(self.camino)
+            self.jarvis.saut_de_ligne("Mg")
+            self.affiche_mat(self.mat_Mg)
 
 
 automate = Graphe("1")
 
 automate.floydwarshall()
+
 
 
 
