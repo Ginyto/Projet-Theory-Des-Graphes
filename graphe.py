@@ -28,10 +28,6 @@ class Graphe:
         self.replace_matrice(self.mat_Mg,0, INF)
         self.matrice_camino()
         self.fill_camino()
-        self.jarvis.saut_de_ligne("init")
-        self.affiche_mat(self.jarvis.mat)
-        self.jarvis.saut_de_ligne("mat")
-        self.affiche_mat(self.mat_Mg)
     
     
     def aiguillage_sommet(self, num,content,aiguille):
@@ -257,17 +253,25 @@ class Graphe:
                 if tab[i][j] == x and i != j:
                     tab[i][j] = y
                     
-        self.jarvis.saut_de_ligne("mat ∞")
-        self.affiche_mat(tab)
+        #self.jarvis.saut_de_ligne("mat ∞")
+        #self.affiche_mat(tab)
     
     def floydwarshall(self):
         
         for way in range(self.jarvis.sommet):
             for first in range(self.jarvis.sommet):
                 for last in range(self.jarvis.sommet):
+                    #print("Est ce que le racourcis",self.mat_Mg[first][way] + self.mat_Mg[way][last],"est inferieur a",self.mat_Mg[first][last])
                     #si le chemin parcouru entre a et b en passant par c est inferieur au parcour a et b alors on update le chemin a et b
+                    
                     if self.mat_Mg[first][way] + self.mat_Mg[way][last] < self.mat_Mg[first][last]:
-                        self.mat_Mg[first][way] = self.mat_Mg[first][way] + self.mat_Mg[way][last]
+                        self.jarvis.saut_de_ligne("explications")
+                        print("point de départ",first ,"à raccourcis",way," =",self.mat_Mg[first][way])
+                        print("point de racourcis",way, "à arrivée",last, " =",self.mat_Mg[way][last], "somme =>",self.mat_Mg[first][way] + self.mat_Mg[way][last])
+                        print("point de départ",first, "à arrivé",last, " =",self.mat_Mg[first][last],">",self.mat_Mg[first][way] + self.mat_Mg[way][last])
+                        
+                        self.mat_Mg[first][last] = self.mat_Mg[first][way] + self.mat_Mg[way][last]
+                        print("Nouveau poids entre",first,"et",last,"=",self.mat_Mg[first][way] + self.mat_Mg[way][last])
                         self.camino[first][last] = self.camino[way][last]
                 
                 if self.mat_Mg[first][first] < 0:
