@@ -284,6 +284,10 @@ class Graphe:
                         self.affiche_mat(self.camino)
                         self.jarvis.saut_de_ligne("poids")
                         self.affiche_mat(self.mat_Mg)
+            
+                if self.mat_Mg[first][first] < 0:
+                    print("Cycle absorbant")
+                    self.circuit = True
         
         #self.absorption()
     
@@ -342,23 +346,30 @@ class Graphe:
         if choix == "t" or choix == "T":
             self.affiche_all()
             self.floydwarshall()
-            self.resultat()
+            if self.circuit == False:
+                self.resultat()
+            else:
+                self.jarvis.jolieprint("Circuit absorbant")
+        
+        
             
         if self.jarvis.here_we_go_again() == False:
             return True
 
 
-automate = Graphe("8")
+automate = Graphe("13")
 
 
 
 #automate.affiche_all()
 
-automate.floydwarshall()
+automate.floydwarshall() 
+
 
 automate.resultat()
 
 #automate.absorption(6)
+
 
 
 
