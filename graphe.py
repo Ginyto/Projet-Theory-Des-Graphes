@@ -17,6 +17,7 @@ class Graphe:
         self.name = fichier
         self.registre = []
         self.poids = []
+        self.circuit = False
         self.jarvis.initialisation(fichier)
         
         self.crea_sommet()
@@ -28,6 +29,8 @@ class Graphe:
         self.replace_matrice(self.mat_Mg,0, INF)
         self.matrice_camino()
         self.fill_camino()
+        
+        self.absorption()
     
     
     def aiguillage_sommet(self, num,content,aiguille):
@@ -152,9 +155,11 @@ class Graphe:
             point_b (int): sommet b
         """
         
+        poids = 0
+        
         self.jarvis.saut_de_ligne("paseo")
         
-        print("Je veux aller du sommet", self.registre[point_a].nom,"au", self.registre[point_b].nom)
+        #print("Je veux aller du sommet", self.registre[point_a].nom,"au", self.registre[point_b].nom)
         
         self.affichage_sommet(point_a)
         
@@ -166,7 +171,7 @@ class Graphe:
         
         else:
             print()
-            print("Il n'y a pas de chemin directe entre ces 2 sommets")
+            #print("Il n'y a pas de chemin directe entre ces 2 sommets")
     
     def matriceMg(self):
         """cree la matrice Mg vierge"""
@@ -280,19 +285,30 @@ class Graphe:
                         self.jarvis.saut_de_ligne("poids")
                         self.affiche_mat(self.mat_Mg)
         
-        #self.absorption()
+        self.absorption()
     
     def absorption(self):
-        self.circuit = False
         somme = 0
+        #print()
+        #self.affiche_mat(self.mat_Mg)
+        #print()
         
-        for i in range(len(self.mat_Mg)):
-            for j in range(len(self.mat_Mg[i])):
-                if self.mat_Mg[i][j] != INF and i != j:
-                    somme += self.mat_Mg[i][j]
+        for i in range(self.jarvis.sommet):
+            for j in range(self.jarvis.sommet):
+                for k in range(self.jarvis.sommet):
+                    for f in range(self.jarvis.sommet):
+                        if self.mat_Mg[i][j] != INF and i != j:
+                            if self.mat_Mg[j][k] != INF and j != k:
+                                if self.mat_Mg[k][f] != INF and k != f and i == f:
+                                    somme += self.mat_Mg[i][j] + self.mat_Mg[j][k] + self.mat_Mg[k][f]
+                                    #print(i,j,k,f,"=",somme)
+                                    if somme < 0:
+                                        print("Il ya un circuit absorbant")
+                                        self.circuit = True
+                                        return
+                                    somme = 0
         
-        print("voici la somme ", somme)
-    
+        
     def resultat(self):
         self.jarvis.saut_de_ligne("resultats")
         
@@ -331,13 +347,18 @@ class Graphe:
             return True
 
 
-#automate = Graphe("1")
+automate = Graphe("1")
+
+if automate.circuit == True:
+    print("shit")
 
 #automate.affiche_all()
 
 #automate.floydwarshall()
 
 #automate.resultat()
+
+#automate.absorption()
 
 
 
