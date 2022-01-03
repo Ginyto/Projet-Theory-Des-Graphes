@@ -107,13 +107,13 @@ class Jarvis:
             print("\n <--------------------",text,"------------------->\n")
         
         else :
-            print("\n <------------------------------------------>\n")
+            print("\n <-------------------------------------------->\n")
 
     
     def fill(self,tab,cosa):
         tab.append(cosa)
     
-    def is_it_graphe(self,x, baro):
+    def is_it_int(self,x, baro):
         allow = []
         
         for i in range(1,baro+1):
@@ -124,13 +124,51 @@ class Jarvis:
                 return True
         
         return False
-        
     
     def hellothere(self):
         print("Hello there!")
+        x = input("appuie sur une touche!")
+        print(x)
+    
+    def clear_console(self):
+        print(chr(27) + "[2J")
+    
+    def tapez_sur_pour(self, sur, pour):
+        print("    Tapez sur : ",sur,"pour ->",pour)
+    
+    def affiche_menu(self):
+        self.saut_de_ligne("")
+        print("        Bonjour ! Voici notre programme")
+        self.saut_de_ligne("")
+        print("    Voici les differentes actions dont vous\n    disposez : \n")
+        self.tapez_sur_pour("A","Afficher le graphe")
+        self.tapez_sur_pour("F","Floyd-Warshall")
+        self.tapez_sur_pour("R","Resultats")
+        self.saut_de_ligne("")
+    
+    def jolieprint(self,message):
+        self.saut_de_ligne("")
+        print("                  ",message)
+        self.saut_de_ligne("")
+    
+    def here_we_go_again(self):
+        choix = input("Voulez vous continuez ? oui ou non\n")
+        
+        while choix != "oui" and choix != "non":
+            choix = input("Voulez vous continuez ? oui ou non\n")
+        
+        if choix == "oui":
+            return True
+        
+        if choix == "non":
+            return False
 
 
-jarvis = Jarvis()
+#jarvis = Jarvis()
+
+#jarvis.affiche_menu()
+
+#jarvis.hellothere()
 #jarvis.initialisation("13")
 #jarvis = Jarvis()
 

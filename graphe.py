@@ -302,10 +302,20 @@ class Graphe:
                 if i != j and self.camino[i][j] != -1:
                     chemin.append(j)
                     print("\nle chemin le plus cours pour aller de",i,"à",j,"est :",chemin,"\n")
-            
+    
+    def affiche_all(self):
+        self.jarvis.jolieprint("Mat initiale")
+        self.affiche_mat(self.jarvis.mat)
+        self.jarvis.jolieprint("Mat poids")
+        self.affiche_mat(self.mat_Mg)
+        self.jarvis.jolieprint("Mat chemin")
+        self.affiche_mat(self.camino)
+        self.jarvis.saut_de_ligne("")
 
 
 #automate = Graphe("1")
+
+#automate.affiche_all()
 
 #automate.floydwarshall()
 
