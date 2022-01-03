@@ -1,5 +1,7 @@
 from graphe import *
 
+jarvis = Jarvis()
+
 menu = True
 
 while menu == True:

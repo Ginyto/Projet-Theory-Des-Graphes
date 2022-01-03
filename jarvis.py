@@ -121,6 +121,9 @@ class Jarvis:
         
         if typeof == str:
             return False
+    
+    def hellothere(self):
+        print("Hello there!")
 
 
 #jarvis = Jarvis()
