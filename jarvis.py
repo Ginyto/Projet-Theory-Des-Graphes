@@ -2,6 +2,7 @@ class Jarvis:
     
     
     def initialisation(self, fichier):
+        self.saut_de_ligne("")
         print("Initialisation du fichier : "+fichier)
         
         #self.saut_de_ligne("test")
@@ -136,19 +137,37 @@ class Jarvis:
     def tapez_sur_pour(self, sur, pour):
         print("    Tapez sur : ",sur,"pour ->",pour)
     
-    def affiche_menu(self):
+    def affiche_menu(self,x):
         self.saut_de_ligne("")
         print("        Bonjour ! Voici notre programme")
         self.saut_de_ligne("")
-        print("    Voici les differentes actions dont vous\n    disposez : \n")
-        self.tapez_sur_pour("A","Afficher le graphe")
-        self.tapez_sur_pour("F","Floyd-Warshall")
-        self.tapez_sur_pour("R","Resultats")
-        self.saut_de_ligne("")
+        
+        if x == 1:
+            self.jolieprint("Selectionner votre graphe")
+        
+        if x == 2:
+            print("    Voici les differentes actions dont vous\n    disposez : \n")
+            self.tapez_sur_pour("A","Afficher le graphe")
+            self.tapez_sur_pour("F","Floyd-Warshall")
+            self.tapez_sur_pour("R","Resultats")
+            self.tapez_sur_pour("T","Tout executer")
+            self.tapez_sur_pour("exit","Quitter")
+            self.saut_de_ligne("")
+    
+    def verif(self,x):
+        verification = ["a","A","f","F","r","R","t","T","exit"]
+        
+        for i in range(len(verification)):
+            if x == verification[i]:
+                #print("SUCCES")
+                return True
+        
+        #print("ECHEC")
+        return False
     
     def jolieprint(self,message):
         self.saut_de_ligne("")
-        print("                  ",message)
+        print("         ",message)
         self.saut_de_ligne("")
     
     def here_we_go_again(self):

@@ -311,6 +311,24 @@ class Graphe:
         self.jarvis.jolieprint("Mat chemin")
         self.affiche_mat(self.camino)
         self.jarvis.saut_de_ligne("")
+    
+    def boucle_menu(self,menu,menu_graphe, choix):
+        if choix == "a" or choix == "A":
+            self.affiche_all()
+            
+        if choix == "f" or choix == "F":
+            self.floydwarshall()
+            
+        if choix == "r" or choix == "R":
+            self.resultat()
+        
+        if choix == "t" or choix == "T":
+            self.affiche_all()
+            self.floydwarshall()
+            self.resultat()
+            
+        if self.jarvis.here_we_go_again() == False:
+            return True
 
 
 #automate = Graphe("1")
