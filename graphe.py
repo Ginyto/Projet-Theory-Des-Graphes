@@ -347,7 +347,7 @@ class Graphe:
             return True
 
 
-automate = Graphe("5")
+automate = Graphe("1")
 
 
 
