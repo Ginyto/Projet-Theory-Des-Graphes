@@ -287,7 +287,7 @@ class Graphe:
         
         #self.absorption()
     
-    def absorption(self, x):
+    def absorption(self):
         somme = 0
         #print()
         #self.affiche_mat(self.mat_Mg)
@@ -309,23 +309,6 @@ class Graphe:
                                             self.circuit = True
                                             return
                                         somme = 0
-                        
-                        for m in range(self.jarvis.sommet):
-                            for n in range(self.jarvis.sommet):
-                                if x == 6:
-                                    if self.mat_Mg[i][j] != INF and i != j:
-                                        if self.mat_Mg[j][k] != INF and j != k:
-                                            if self.mat_Mg[k][l] != INF and k != l:
-                                                if self.mat_Mg[l][m] != INF and l != m:
-                                                    if self.mat_Mg[m][n] != INF and m != n and i == n:
-                                                        somme += self.mat_Mg[i][j] + self.mat_Mg[j][k] + self.mat_Mg[k][l] + self.mat_Mg[l][m] + self.mat_Mg[m][n]
-                                                        print(i,j,k,l,m,n,"=",somme)
-                                                        if somme < 0:
-                                                            print("Il ya un circuit absorbant")
-                                                            self.circuit = True
-                                                            return
-                                                        somme = 0
-                                    
     
     def resultat(self):
         self.jarvis.saut_de_ligne("resultats")
@@ -365,7 +348,7 @@ class Graphe:
             return True
 
 
-automate = Graphe("6")
+automate = Graphe("8")
 
 
 
@@ -373,12 +356,9 @@ automate = Graphe("6")
 
 automate.floydwarshall()
 
-#automate.resultat()
+automate.resultat()
 
-automate.absorption(6)
-
-if automate.circuit == True:
-    print("shit")
+#automate.absorption(6)
 
 
 
