@@ -241,8 +241,8 @@ class Graphe:
                 if self.mat_Mg[i][j] != 0 and self.mat_Mg[i][j] != INF:
                     self.camino[i][j] = i
         
-        self.jarvis.saut_de_ligne("camino")
-        self.affiche_mat(self.camino)
+        #self.jarvis.saut_de_ligne("camino")
+        #self.affiche_mat(self.camino)
                 
     
     def replace_matrice(self,tab, x, y):
@@ -275,12 +275,12 @@ class Graphe:
                         self.camino[first][last] = self.camino[way][last]
                         print("Nouveau chemin entre",first,"et",last,"passe par",self.camino[way][last])
                         
-                        self.jarvis.saut_de_ligne("cam")
+                        self.jarvis.saut_de_ligne("chemin")
                         self.affiche_mat(self.camino)
-                        self.jarvis.saut_de_ligne("Mg")
+                        self.jarvis.saut_de_ligne("poids")
                         self.affiche_mat(self.mat_Mg)
         
-        self.absorption()
+        #self.absorption()
     
     def absorption(self):
         self.circuit = False
@@ -292,6 +292,16 @@ class Graphe:
                     somme += self.mat_Mg[i][j]
         
         print("voici la somme ", somme)
+    
+    def resultat(self):
+        self.jarvis.saut_de_ligne("resultats")
+        
+        for i in range(len(self.camino)):
+            chemin = [i]
+            for j in range(len(self.camino[i])):
+                if i != j and self.camino[i][j] != -1:
+                    chemin.append(j)
+                    print("\nle chemin le plus cours pour aller de",i,"à",j,"est :",chemin,"\n")
             
 
 
@@ -299,13 +309,7 @@ automate = Graphe("1")
 
 automate.floydwarshall()
 
-
-
-
-#automate.paseo(2,3)
-
-#automate.affichage_sommet(0)
-#automate.jarvis.affichage(automate.jarvis.mat)
+automate.resultat()
 
 
 
