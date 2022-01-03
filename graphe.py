@@ -357,16 +357,16 @@ class Graphe:
             return True
 
 
-automate = Graphe("13")
+#automate = Graphe("13")
 
 
 
 #automate.affiche_all()
 
-automate.floydwarshall() 
+#automate.floydwarshall() 
 
 
-automate.resultat()
+#automate.resultat()
 
 #automate.absorption(6)
 

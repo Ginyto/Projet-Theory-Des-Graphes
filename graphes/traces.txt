@@ -1,0 +1,5661 @@
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+1
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 1
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  5 
+        2 | 1  2  -3 
+        3 | 1  3  5 
+        4 | 2  3  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  5  inf 
+        1 | inf  0  -3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 2  = -3 somme => -2
+point de départ 0 à arrivé 2  = 5 > -2 
+
+Nouveau poids entre 0 et 2 = -2
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  -1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -2  inf 
+        1 | inf  0  -3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 3  = 5 somme => 6
+point de départ 0 à arrivé 3  = inf > 6 
+
+Nouveau poids entre 0 et 3 = 6
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -2  6 
+        1 | inf  0  -3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -2
+point de racourcis 2 à arrivée 3  = 2 somme => 0
+point de départ 0 à arrivé 3  = 6 > 0 
+
+Nouveau poids entre 0 et 3 = 0
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  2 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -2  0 
+        1 | inf  0  -3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 3  = 2 somme => -1
+point de départ 1 à arrivé 3  = 5 > -1 
+
+Nouveau poids entre 1 et 3 = -1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  2 
+        1 | -1  -1  1  2 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -2  0 
+        1 | inf  0  -3  -1 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 3] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+2
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 2
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  5 
+        2 | 1  2  3 
+        3 | 1  3  5 
+        4 | 2  3  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  5  inf 
+        1 | inf  0  3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 2  = 3 somme => 4
+point de départ 0 à arrivé 2  = 5 > 4 
+
+Nouveau poids entre 0 et 2 = 4
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  -1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  4  inf 
+        1 | inf  0  3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 3  = 5 somme => 6
+point de départ 0 à arrivé 3  = inf > 6 
+
+Nouveau poids entre 0 et 3 = 6
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  1  1 
+        1 | -1  -1  1  1 
+        2 | -1  -1  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  4  6 
+        1 | inf  0  3  5 
+        2 | inf  inf  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 3] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+3
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 3
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  -5 
+        2 | 1  2  -3 
+        3 | 1  3  2 
+        4 | 2  1  4 
+        5 | 2  3  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  inf 
+        1 | inf  0  -3  2 
+        2 | inf  4  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 3  = 2 somme => 3
+point de départ 0 à arrivé 3  = inf > 3 
+
+Nouveau poids entre 0 et 3 = 3
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  4  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = 4 somme => -1
+point de départ 0 à arrivé 1  = 1 > -1 
+
+Nouveau poids entre 0 et 1 = -1
+Nouveau chemin entre 0 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  4  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 3  = 2 somme => -3
+point de départ 0 à arrivé 3  = 3 > -3 
+
+Nouveau poids entre 0 et 3 = -3
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | inf  0  -3  2 
+        2 | inf  4  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 3  = 2 somme => -1
+point de départ 1 à arrivé 3  = 2 > -1 
+
+Nouveau poids entre 1 et 3 = -1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | -1  -1  1  2 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | inf  0  -3  -1 
+        2 | inf  4  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 1, 3] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+4
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 4
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  -5 
+        2 | 1  2  -3 
+        3 | 1  3  2 
+        4 | 2  0  6 
+        5 | 2  1  4 
+        6 | 2  3  2 
+        7 | 3  2  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  inf 
+        1 | inf  0  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  -1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 3  = 2 somme => 3
+point de départ 0 à arrivé 3  = inf > 3 
+
+Nouveau poids entre 0 et 3 = 3
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  1 
+        1 | -1  -1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  3 
+        1 | inf  0  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = 4 somme => -1
+point de départ 0 à arrivé 1  = 1 > -1 
+
+Nouveau poids entre 0 et 1 = -1
+Nouveau chemin entre 0 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  1 
+        1 | -1  -1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  3 
+        1 | inf  0  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 3  = 2 somme => -3
+point de départ 0 à arrivé 3  = 3 > -3 
+
+Nouveau poids entre 0 et 3 = -3
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | -1  -1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | inf  0  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 0  = 6 somme => 3
+point de départ 1 à arrivé 0  = inf > 3 
+
+Nouveau poids entre 1 et 0 = 3
+Nouveau chemin entre 1 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | 2  -1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | 3  0  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 3  = 2 somme => -1
+point de départ 1 à arrivé 3  = 2 > -1 
+
+Nouveau poids entre 1 et 3 = -1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | 2  -1  1  2 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | 3  0  -3  -1 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 0  = 6 somme => 8
+point de départ 3 à arrivé 0  = inf > 8 
+
+Nouveau poids entre 3 et 0 = 8
+Nouveau chemin entre 3 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | 2  -1  1  2 
+        2 | 2  2  -1  2 
+        3 | 2  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | 3  0  -3  -1 
+        2 | 6  4  0  2 
+        3 | 8  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 1  = 4 somme => 6
+point de départ 3 à arrivé 1  = inf > 6 
+
+Nouveau poids entre 3 et 1 = 6
+Nouveau chemin entre 3 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  2 
+        1 | 2  -1  1  2 
+        2 | 2  2  -1  2 
+        3 | 2  2  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -1  -5  -3 
+        1 | 3  0  -3  -1 
+        2 | 6  4  0  2 
+        3 | 8  6  2  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 0 est : [1, 0] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 0, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 0, 2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 0 est : [2, 0] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 0, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 0, 1, 3] 
+
+
+le chemin le plus cours pour aller de 3 à 0 est : [3, 0] 
+
+
+le chemin le plus cours pour aller de 3 à 1 est : [3, 0, 1] 
+
+
+le chemin le plus cours pour aller de 3 à 2 est : [3, 0, 1, 2] 
+
+Voulez vous changez de graphe ? oui ou non
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  -5 
+        2 | 1  1  -1 
+        3 | 1  2  -3 
+        4 | 1  3  2 
+        5 | 2  0  6 
+        6 | 2  1  4 
+        7 | 2  3  2 
+        8 | 3  2  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  inf 
+        1 | inf  -1  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------------------------------->
+
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 1  = -1 somme => 0
+point de départ 0 à arrivé 1  = 1 > 0 
+
+Nouveau poids entre 0 et 1 = -1
+Nouveau chemin entre 0 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  -1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  inf 
+        1 | inf  -1  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 0
+point de racourcis 1 à arrivée 3  = 2 somme => 2
+point de départ 0 à arrivé 3  = inf > 2 
+
+Nouveau poids entre 0 et 3 = 2
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -1  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 1  = -1
+point de racourcis 1 à arrivée 1  = -1 somme => -2
+point de départ 1 à arrivé 1  = -1 > -2 
+
+Nouveau poids entre 1 et 1 = -4
+Nouveau chemin entre 1 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -2  -3  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 1  = -2
+point de racourcis 1 à arrivée 2  = -3 somme => -5
+point de départ 1 à arrivé 2  = -3 > -5 
+
+Nouveau poids entre 1 et 2 = -7
+Nouveau chemin entre 1 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -2  -5  2 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 1  = -2
+point de racourcis 1 à arrivée 3  = 2 somme => 0
+point de départ 1 à arrivé 3  = 2 > 0 
+
+Nouveau poids entre 1 et 3 = -2
+Nouveau chemin entre 1 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  2  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -2  -5  0 
+        2 | 6  4  0  2 
+        3 | inf  inf  2  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 1  = 4
+point de racourcis 1 à arrivée 1  = -2 somme => 2
+point de départ 2 à arrivé 1  = 4 > 2 
+
+Nouveau poids entre 2 et 1 = 0
+Nouveau chemin entre 2 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  1  -1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -2  -5  0 
+        2 | 6  2  0  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 1  = 2
+point de racourcis 1 à arrivée 2  = -5 somme => -3
+point de départ 2 à arrivé 2  = 0 > -3 
+
+Nouveau poids entre 2 et 2 = -3
+Nouveau chemin entre 2 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  0  -5  2 
+        1 | inf  -2  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = 2 somme => -3
+point de départ 0 à arrivé 1  = 0 > -3 
+
+Nouveau poids entre 0 et 1 = -3
+Nouveau chemin entre 0 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  0  1 
+        1 | -1  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -5  2 
+        1 | inf  -2  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 2  = -3 somme => -8
+point de départ 0 à arrivé 2  = -5 > -8 
+
+Nouveau poids entre 0 et 2 = -11
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  1 
+        1 | -1  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  2 
+        1 | inf  -2  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -8
+point de racourcis 2 à arrivée 3  = 2 somme => -6
+point de départ 0 à arrivé 3  = 2 > -6 
+
+Nouveau poids entre 0 et 3 = -6
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | -1  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | inf  -2  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 0  = 6 somme => 1
+point de départ 1 à arrivé 0  = inf > 1 
+
+Nouveau poids entre 1 et 0 = 1
+Nouveau chemin entre 1 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -2  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = 2 somme => -3
+point de départ 1 à arrivé 1  = -2 > -3 
+
+Nouveau poids entre 1 et 1 = -3
+Nouveau chemin entre 1 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -5  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 2  = -3 somme => -8
+point de départ 1 à arrivé 2  = -5 > -8 
+
+Nouveau poids entre 1 et 2 = -11
+Nouveau chemin entre 1 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  1 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  0 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -8
+point de racourcis 2 à arrivée 3  = 2 somme => -6
+point de départ 1 à arrivé 3  = 0 > -6 
+
+Nouveau poids entre 1 et 3 = -6
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 6  2  -3  2 
+        3 | inf  inf  2  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 0  = 6 somme => 3
+point de départ 2 à arrivé 0  = 6 > 3 
+
+Nouveau poids entre 2 et 0 = 0
+Nouveau chemin entre 2 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  2  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 1  = 2 somme => -1
+point de départ 2 à arrivé 1  = 2 > -1 
+
+Nouveau poids entre 2 et 1 = -4
+Nouveau chemin entre 2 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -3  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 2  = -3 somme => -6
+point de départ 2 à arrivé 2  = -3 > -6 
+
+Nouveau poids entre 2 et 2 = -12
+Nouveau chemin entre 2 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  2 
+        3 | inf  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -6
+point de racourcis 2 à arrivée 3  = 2 somme => -4
+point de départ 2 à arrivé 3  = 2 > -4 
+
+Nouveau poids entre 2 et 3 = -10
+Nouveau chemin entre 2 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | -1  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | inf  inf  2  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 0  = 3 somme => 5
+point de départ 3 à arrivé 0  = inf > 5 
+
+Nouveau poids entre 3 et 0 = 5
+Nouveau chemin entre 3 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  -1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  inf  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 1  = -1 somme => 1
+point de départ 3 à arrivé 1  = inf > 1 
+
+Nouveau poids entre 3 et 1 = 1
+Nouveau chemin entre 3 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  3  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  2  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 2  = -6 somme => -4
+point de départ 3 à arrivé 2  = 2 > -4 
+
+Nouveau poids entre 3 et 2 = -10
+Nouveau chemin entre 3 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = -4
+point de racourcis 2 à arrivée 3  = -4 somme => -8
+point de départ 3 à arrivé 3  = 0 > -8 
+
+Nouveau poids entre 3 et 3 = -8
+Nouveau chemin entre 3 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 0  = 5 somme => -1
+point de départ 0 à arrivé 0  = 0 > -1 
+
+Nouveau poids entre 0 et 0 = -1
+Nouveau chemin entre 0 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -3  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 1  = 1 somme => -5
+point de départ 0 à arrivé 1  = -3 > -5 
+
+Nouveau poids entre 0 et 1 = -5
+Nouveau chemin entre 0 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -8  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 2  = -4 somme => -10
+point de départ 0 à arrivé 2  = -8 > -10 
+
+Nouveau poids entre 0 et 2 = -10
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -6 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 3  = -8 somme => -14
+point de départ 0 à arrivé 3  = -6 > -14 
+
+Nouveau poids entre 0 et 3 = -22
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | 1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 0  = 5 somme => -1
+point de départ 1 à arrivé 0  = 1 > -1 
+
+Nouveau poids entre 1 et 0 = -1
+Nouveau chemin entre 1 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -3  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 1  = 1 somme => -5
+point de départ 1 à arrivé 1  = -3 > -5 
+
+Nouveau poids entre 1 et 1 = -5
+Nouveau chemin entre 1 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -8  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 2  = -4 somme => -10
+point de départ 1 à arrivé 2  = -8 > -10 
+
+Nouveau poids entre 1 et 2 = -10
+Nouveau chemin entre 1 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -6 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = -6
+point de racourcis 3 à arrivée 3  = -8 somme => -14
+point de départ 1 à arrivé 3  = -6 > -14 
+
+Nouveau poids entre 1 et 3 = -22
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 3  -1  -6  -4 
+        3 | 5  1  -4  -8 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -4
+point de racourcis 3 à arrivée 0  = 5 somme => 1
+point de départ 2 à arrivé 0  = 3 > 1 
+
+Nouveau poids entre 2 et 0 = 1
+Nouveau chemin entre 2 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -1  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -4
+point de racourcis 3 à arrivée 1  = 1 somme => -3
+point de départ 2 à arrivé 1  = -1 > -3 
+
+Nouveau poids entre 2 et 1 = -3
+Nouveau chemin entre 2 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -6  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -4
+point de racourcis 3 à arrivée 2  = -4 somme => -8
+point de départ 2 à arrivé 2  = -6 > -8 
+
+Nouveau poids entre 2 et 2 = -8
+Nouveau chemin entre 2 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -4 
+        3 | 5  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -4
+point de racourcis 3 à arrivée 3  = -8 somme => -12
+point de départ 2 à arrivé 3  = -4 > -12 
+
+Nouveau poids entre 2 et 3 = -20
+Nouveau chemin entre 2 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -12 
+        3 | 5  1  -4  -8 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 3  = -8
+point de racourcis 3 à arrivée 0  = 5 somme => -3
+point de départ 3 à arrivé 0  = 5 > -3 
+
+Nouveau poids entre 3 et 0 = -11
+Nouveau chemin entre 3 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -12 
+        3 | -3  1  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 3  = -8
+point de racourcis 3 à arrivée 1  = 1 somme => -7
+point de départ 3 à arrivé 1  = 1 > -7 
+
+Nouveau poids entre 3 et 1 = -15
+Nouveau chemin entre 3 et 1 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -12 
+        3 | -3  -7  -4  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 3  = -8
+point de racourcis 3 à arrivée 2  = -4 somme => -12
+point de départ 3 à arrivé 2  = -4 > -12 
+
+Nouveau poids entre 3 et 2 = -20
+Nouveau chemin entre 3 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -12 
+        3 | -3  -7  -12  -8 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 3  = -8
+point de racourcis 3 à arrivée 3  = -8 somme => -16
+point de départ 3 à arrivé 3  = -8 > -16 
+
+Nouveau poids entre 3 et 3 = -32
+Nouveau chemin entre 3 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | 2  1  1  2 
+        1 | 2  1  1  2 
+        2 | 2  1  1  2 
+        3 | 2  1  1  2 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | -1  -5  -10  -14 
+        1 | -1  -5  -10  -14 
+        2 | 1  -3  -8  -12 
+        3 | -3  -7  -12  -16 
+Cycle absorbant
+
+ <-------------------------------------------->
+
+          Circuit absorbant
+
+ <-------------------------------------------->
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+6
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 6
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  2 
+        1 | 0  2  -5 
+        2 | 1  1  3 
+        3 | 1  2  -3 
+        4 | 1  3  3 
+        5 | 2  0  7 
+        6 | 2  1  4 
+        7 | 2  3  3 
+        8 | 3  2  2 
+        9 | 4  5  5 
+        10 | 5  4  2 
+        11 | 5  5  0 
+        12 | 5  6  -2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  2  -5  inf  inf  inf  inf 
+        1 | inf  3  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  0  0  -1  -1  -1  -1 
+        1 | -1  1  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 2
+point de racourcis 1 à arrivée 3  = 3 somme => 5
+point de départ 0 à arrivé 3  = inf > 5 
+
+Nouveau poids entre 0 et 3 = 5
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  0  0  1  -1  -1  -1 
+        1 | -1  1  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  2  -5  5  inf  inf  inf 
+        1 | inf  3  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = 4 somme => -1
+point de départ 0 à arrivé 1  = 2 > -1 
+
+Nouveau poids entre 0 et 1 = -1
+Nouveau chemin entre 0 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  1  -1  -1  -1 
+        1 | -1  1  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  5  inf  inf  inf 
+        1 | inf  3  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 3  = 3 somme => -2
+point de départ 0 à arrivé 3  = 5 > -2 
+
+Nouveau poids entre 0 et 3 = -2
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | -1  1  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | inf  3  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 0  = 7 somme => 4
+point de départ 1 à arrivé 0  = inf > 4 
+
+Nouveau poids entre 1 et 0 = 4
+Nouveau chemin entre 1 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  1  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  3  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 1  = 4 somme => 1
+point de départ 1 à arrivé 1  = 3 > 1 
+
+Nouveau poids entre 1 et 1 = 1
+Nouveau chemin entre 1 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  2  1  1  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  1  -3  3  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 3  = 3 somme => 0
+point de départ 1 à arrivé 3  = 3 > 0 
+
+Nouveau poids entre 1 et 3 = 0
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  2  1  2  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | -1  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  1  -3  0  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | inf  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 0  = 7 somme => 9
+point de départ 3 à arrivé 0  = inf > 9 
+
+Nouveau poids entre 3 et 0 = 9
+Nouveau chemin entre 3 et 0 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  2  1  2  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | 2  -1  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  1  -3  0  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | 9  inf  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 1  = 4 somme => 6
+point de départ 3 à arrivé 1  = inf > 6 
+
+Nouveau poids entre 3 et 1 = 6
+Nouveau chemin entre 3 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  2  1  2  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | 2  2  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  -1 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  1  -3  0  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | 9  6  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  inf 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 5  = 5
+point de racourcis 5 à arrivée 6  = -2 somme => 3
+point de départ 4 à arrivé 6  = inf > 3 
+
+Nouveau poids entre 4 et 6 = 3
+Nouveau chemin entre 4 et 6 passe par 5
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | -1  2  0  2  -1  -1  -1 
+        1 | 2  2  1  2  -1  -1  -1 
+        2 | 2  2  -1  2  -1  -1  -1 
+        3 | 2  2  3  -1  -1  -1  -1 
+        4 | -1  -1  -1  -1  -1  4  5 
+        5 | -1  -1  -1  -1  5  -1  5 
+        6 | -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  
+        0 | 0  -1  -5  -2  inf  inf  inf 
+        1 | 4  1  -3  0  inf  inf  inf 
+        2 | 7  4  0  3  inf  inf  inf 
+        3 | 9  6  2  0  inf  inf  inf 
+        4 | inf  inf  inf  inf  0  5  3 
+        5 | inf  inf  inf  inf  2  0  -2 
+        6 | inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 0 est : [1, 0] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 0, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 0, 2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 0 est : [2, 0] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 0, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 0, 1, 3] 
+
+
+le chemin le plus cours pour aller de 3 à 0 est : [3, 0] 
+
+
+le chemin le plus cours pour aller de 3 à 1 est : [3, 0, 1] 
+
+
+le chemin le plus cours pour aller de 3 à 2 est : [3, 0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 4 à 5 est : [4, 5] 
+
+
+le chemin le plus cours pour aller de 4 à 6 est : [4, 5, 6] 
+
+
+le chemin le plus cours pour aller de 5 à 4 est : [5, 4] 
+
+
+le chemin le plus cours pour aller de 5 à 6 est : [5, 4, 6] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+7
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 7
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  2 
+        2 | 0  3  1 
+        3 | 1  4  3 
+        4 | 2  3  1 
+        5 | 2  4  1 
+        6 | 3  4  4 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  1  inf 
+        1 | inf  0  inf  inf  3 
+        2 | inf  inf  0  1  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  0  -1 
+        1 | -1  -1  -1  -1  1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 4  = 3 somme => 4
+point de départ 0 à arrivé 4  = inf > 4 
+
+Nouveau poids entre 0 et 4 = 4
+Nouveau chemin entre 0 et 4 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  0  1 
+        1 | -1  -1  -1  -1  1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  1  4 
+        1 | inf  0  inf  inf  3 
+        2 | inf  inf  0  1  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 4  = 1 somme => 3
+point de départ 0 à arrivé 4  = 4 > 3 
+
+Nouveau poids entre 0 et 4 = 3
+Nouveau chemin entre 0 et 4 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  0  2 
+        1 | -1  -1  -1  -1  1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  1  3 
+        1 | inf  0  inf  inf  3 
+        2 | inf  inf  0  1  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 0 à 4 est : [0, 1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 1 à 4 est : [1, 4] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 4 est : [2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 3 à 4 est : [3, 4] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+8
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 8
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 1  2  2 
+        2 | 2  3  3 
+        3 | 3  4  -6 
+        4 | 4  0  0 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  inf  inf  inf 
+        1 | inf  0  2  inf  inf 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  -1  -1  -1 
+        1 | -1  -1  1  -1  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 2  = 2 somme => 3
+point de départ 0 à arrivé 2  = inf > 3 
+
+Nouveau poids entre 0 et 2 = 3
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  -1  -1 
+        1 | -1  -1  1  -1  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  inf  inf 
+        1 | inf  0  2  inf  inf 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 3
+point de racourcis 2 à arrivée 3  = 3 somme => 6
+point de départ 0 à arrivé 3  = inf > 6 
+
+Nouveau poids entre 0 et 3 = 6
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  2  -1 
+        1 | -1  -1  1  -1  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  6  inf 
+        1 | inf  0  2  inf  inf 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 3  = 3 somme => 5
+point de départ 1 à arrivé 3  = inf > 5 
+
+Nouveau poids entre 1 et 3 = 5
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  2  -1 
+        1 | -1  -1  1  2  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  6  inf 
+        1 | inf  0  2  5  inf 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = 6
+point de racourcis 3 à arrivée 4  = -6 somme => 0
+point de départ 0 à arrivé 4  = inf > 0 
+
+Nouveau poids entre 0 et 4 = 0
+Nouveau chemin entre 0 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  2  3 
+        1 | -1  -1  1  2  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  6  0 
+        1 | inf  0  2  5  inf 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = 5
+point de racourcis 3 à arrivée 4  = -6 somme => -1
+point de départ 1 à arrivé 4  = inf > -1 
+
+Nouveau poids entre 1 et 4 = -1
+Nouveau chemin entre 1 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  2  3 
+        1 | -1  -1  1  2  3 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  6  0 
+        1 | inf  0  2  5  -1 
+        2 | inf  inf  0  3  inf 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = 3
+point de racourcis 3 à arrivée 4  = -6 somme => -3
+point de départ 2 à arrivé 4  = inf > -3 
+
+Nouveau poids entre 2 et 4 = -3
+Nouveau chemin entre 2 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  1  2  3 
+        1 | -1  -1  1  2  3 
+        2 | -1  -1  -1  2  3 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  3  6  0 
+        1 | inf  0  2  5  -1 
+        2 | inf  inf  0  3  -3 
+        3 | inf  inf  inf  0  -6 
+        4 | inf  inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 0 à 4 est : [0, 1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 4 est : [1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 4 est : [2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 3 à 4 est : [3, 4] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+9
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 9
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  -5 
+        2 | 1  2  -3 
+        3 | 1  3  2 
+        4 | 2  1  -1 
+        5 | 2  3  2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  inf 
+        1 | inf  0  -3  2 
+        2 | inf  -1  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  -1 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 1  = 1
+point de racourcis 1 à arrivée 3  = 2 somme => 3
+point de départ 0 à arrivé 3  = inf > 3 
+
+Nouveau poids entre 0 et 3 = 3
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  -1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  -1  0  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 1  = -1
+point de racourcis 1 à arrivée 2  = -3 somme => -4
+point de départ 2 à arrivé 2  = 0 > -4 
+
+Nouveau poids entre 2 et 2 = -4
+Nouveau chemin entre 2 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  1  2 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  -1  -4  2 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 1  = -1
+point de racourcis 1 à arrivée 3  = 2 somme => 1
+point de départ 2 à arrivé 3  = 2 > 1 
+
+Nouveau poids entre 2 et 3 = 1
+Nouveau chemin entre 2 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  0  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  1  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 1  = -1 somme => -6
+point de départ 0 à arrivé 1  = 1 > -6 
+
+Nouveau poids entre 0 et 1 = -6
+Nouveau chemin entre 0 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  0  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -5  3 
+        1 | inf  0  -3  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -5
+point de racourcis 2 à arrivée 2  = -4 somme => -9
+point de départ 0 à arrivé 2  = -5 > -9 
+
+Nouveau poids entre 0 et 2 = -13
+Nouveau chemin entre 0 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  3 
+        1 | inf  0  -3  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = -9
+point de racourcis 2 à arrivée 3  = 1 somme => -8
+point de départ 0 à arrivé 3  = 3 > -8 
+
+Nouveau poids entre 0 et 3 = -8
+Nouveau chemin entre 0 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  -1  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  0  -3  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 1  = -1 somme => -4
+point de départ 1 à arrivé 1  = 0 > -4 
+
+Nouveau poids entre 1 et 1 = -4
+Nouveau chemin entre 1 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -3  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -3
+point de racourcis 2 à arrivée 2  = -4 somme => -7
+point de départ 1 à arrivé 2  = -3 > -7 
+
+Nouveau poids entre 1 et 2 = -11
+Nouveau chemin entre 1 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -7  2 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = -7
+point de racourcis 2 à arrivée 3  = 1 somme => -6
+point de départ 1 à arrivé 3  = 2 > -6 
+
+Nouveau poids entre 1 et 3 = -6
+Nouveau chemin entre 1 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -7  -6 
+        2 | inf  -1  -4  1 
+        3 | inf  inf  inf  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -4
+point de racourcis 2 à arrivée 1  = -1 somme => -5
+point de départ 2 à arrivé 1  = -1 > -5 
+
+Nouveau poids entre 2 et 1 = -9
+Nouveau chemin entre 2 et 1 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -7  -6 
+        2 | inf  -5  -4  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -4
+point de racourcis 2 à arrivée 2  = -4 somme => -8
+point de départ 2 à arrivé 2  = -4 > -8 
+
+Nouveau poids entre 2 et 2 = -16
+Nouveau chemin entre 2 et 2 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -7  -6 
+        2 | inf  -5  -8  1 
+        3 | inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 2  = -8
+point de racourcis 2 à arrivée 3  = 1 somme => -7
+point de départ 2 à arrivé 3  = 1 > -7 
+
+Nouveau poids entre 2 et 3 = -15
+Nouveau chemin entre 2 et 3 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  
+        0 | -1  2  1  1 
+        1 | -1  2  1  1 
+        2 | -1  2  1  1 
+        3 | -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  
+        0 | 0  -6  -9  -8 
+        1 | inf  -4  -7  -6 
+        2 | inf  -5  -8  -7 
+        3 | inf  inf  inf  0 
+Cycle absorbant
+Cycle absorbant
+Cycle absorbant
+
+ <-------------------------------------------->
+
+          Circuit absorbant
+
+ <-------------------------------------------->
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+10
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 10
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+T
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  2  2 
+        1 | 0  3  1 
+        2 | 1  0  1 
+        3 | 1  4  1 
+        4 | 2  3  -2 
+        5 | 3  4  4 
+        6 | 3  2  7 
+        7 | 4  1  3 
+        8 | 4  2  -1 
+        9 | 5  6  2 
+        10 | 6  5  -2 
+        11 | 6  7  -2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  inf  inf  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  -1  -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 2  = 2 somme => 3
+point de départ 1 à arrivé 2  = inf > 3 
+
+Nouveau poids entre 1 et 2 = 3
+Nouveau chemin entre 1 et 2 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  inf  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 3  = 1 somme => 2
+point de départ 1 à arrivé 3  = inf > 2 
+
+Nouveau poids entre 1 et 3 = 2
+Nouveau chemin entre 1 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 0  = 1 somme => 4
+point de départ 4 à arrivé 0  = inf > 4 
+
+Nouveau poids entre 4 et 0 = 4
+Nouveau chemin entre 4 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 3  = 2 somme => 5
+point de départ 4 à arrivé 3  = inf > 5 
+
+Nouveau poids entre 4 et 3 = 5
+Nouveau chemin entre 4 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 3  = -2 somme => 0
+point de départ 0 à arrivé 3  = 1 > 0 
+
+Nouveau poids entre 0 et 3 = 0
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = 3
+point de racourcis 2 à arrivée 3  = -2 somme => 1
+point de départ 1 à arrivé 3  = 2 > 1 
+
+Nouveau poids entre 1 et 3 = 1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 2  = -1
+point de racourcis 2 à arrivée 3  = -2 somme => -3
+point de départ 4 à arrivé 3  = 5 > -3 
+
+Nouveau poids entre 4 et 3 = -3
+Nouveau chemin entre 4 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = 0
+point de racourcis 3 à arrivée 4  = 4 somme => 4
+point de départ 0 à arrivé 4  = inf > 4 
+
+Nouveau poids entre 0 et 4 = 4
+Nouveau chemin entre 0 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -2
+point de racourcis 3 à arrivée 4  = 4 somme => 2
+point de départ 2 à arrivé 4  = inf > 2 
+
+Nouveau poids entre 2 et 4 = 2
+Nouveau chemin entre 2 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 0 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 0 et 1 = 7
+Nouveau chemin entre 0 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 4  = 1
+point de racourcis 4 à arrivée 2  = -1 somme => 0
+point de départ 1 à arrivé 2  = 3 > 0 
+
+Nouveau poids entre 1 et 2 = 0
+Nouveau chemin entre 1 et 2 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 4  = 1
+point de racourcis 4 à arrivée 3  = -3 somme => -2
+point de départ 1 à arrivé 3  = 1 > -2 
+
+Nouveau poids entre 1 et 3 = -2
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 0  = 4 somme => 6
+point de départ 2 à arrivé 0  = inf > 6 
+
+Nouveau poids entre 2 et 0 = 6
+Nouveau chemin entre 2 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 1  = 3 somme => 5
+point de départ 2 à arrivé 1  = inf > 5 
+
+Nouveau poids entre 2 et 1 = 5
+Nouveau chemin entre 2 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 0  = 4 somme => 8
+point de départ 3 à arrivé 0  = inf > 8 
+
+Nouveau poids entre 3 et 0 = 8
+Nouveau chemin entre 3 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 3 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 3 et 1 = 7
+Nouveau chemin entre 3 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 2  = -1 somme => 3
+point de départ 3 à arrivé 2  = 7 > 3 
+
+Nouveau poids entre 3 et 2 = 3
+Nouveau chemin entre 3 et 2 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 5 à raccourcis 6  = 2
+point de racourcis 6 à arrivée 7  = -2 somme => 0
+point de départ 5 à arrivé 7  = inf > 0 
+
+Nouveau poids entre 5 et 7 = 0
+Nouveau chemin entre 5 et 7 passe par 6
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  6 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  2  0 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 0 à 4 est : [0, 1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 1 à 0 est : [1, 0] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 0, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 0, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 4 est : [1, 0, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 2 à 0 est : [2, 0] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 0, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 0, 1, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 4 est : [2, 0, 1, 3, 4] 
+
+
+le chemin le plus cours pour aller de 3 à 0 est : [3, 0] 
+
+
+le chemin le plus cours pour aller de 3 à 1 est : [3, 0, 1] 
+
+
+le chemin le plus cours pour aller de 3 à 2 est : [3, 0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 3 à 4 est : [3, 0, 1, 2, 4] 
+
+
+le chemin le plus cours pour aller de 4 à 0 est : [4, 0] 
+
+
+le chemin le plus cours pour aller de 4 à 1 est : [4, 0, 1] 
+
+
+le chemin le plus cours pour aller de 4 à 2 est : [4, 0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 4 à 3 est : [4, 0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 5 à 6 est : [5, 6] 
+
+
+le chemin le plus cours pour aller de 5 à 7 est : [5, 6, 7] 
+
+
+le chemin le plus cours pour aller de 6 à 5 est : [6, 5] 
+
+
+le chemin le plus cours pour aller de 6 à 7 est : [6, 5, 7] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+11
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 11
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  2  2 
+        1 | 0  3  1 
+        2 | 1  0  1 
+        3 | 1  1  2 
+        4 | 2  3  -2 
+        5 | 3  4  4 
+        6 | 4  2  -1 
+        7 | 4  1  3 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  1  inf 
+        1 | 1  2  inf  inf  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  -1  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  0  -1 
+        1 | 1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  4  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 2  = 2 somme => 3
+point de départ 1 à arrivé 2  = inf > 3 
+
+Nouveau poids entre 1 et 2 = 3
+Nouveau chemin entre 1 et 2 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  0  -1 
+        1 | 1  1  0  -1  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  4  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  1  inf 
+        1 | 1  2  3  inf  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  -1  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 3  = 1 somme => 2
+point de départ 1 à arrivé 3  = inf > 2 
+
+Nouveau poids entre 1 et 3 = 2
+Nouveau chemin entre 1 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  0  -1 
+        1 | 1  1  0  0  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  4  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  1  inf 
+        1 | 1  2  3  2  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  -1  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 0  = 1 somme => 4
+point de départ 4 à arrivé 0  = inf > 4 
+
+Nouveau poids entre 4 et 0 = 4
+Nouveau chemin entre 4 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  0  -1 
+        1 | 1  1  0  0  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  1  inf 
+        1 | 1  2  3  2  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 3  = 2 somme => 5
+point de départ 4 à arrivé 3  = inf > 5 
+
+Nouveau poids entre 4 et 3 = 5
+Nouveau chemin entre 4 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  0  -1 
+        1 | 1  1  0  0  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  0  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  1  inf 
+        1 | 1  2  3  2  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  5  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 3  = -2 somme => 0
+point de départ 0 à arrivé 3  = 1 > 0 
+
+Nouveau poids entre 0 et 3 = 0
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  -1 
+        1 | 1  1  0  0  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  0  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  inf 
+        1 | 1  2  3  2  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  5  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = 3
+point de racourcis 2 à arrivée 3  = -2 somme => 1
+point de départ 1 à arrivé 3  = 2 > 1 
+
+Nouveau poids entre 1 et 3 = 1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  -1 
+        1 | 1  1  0  2  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  0  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  inf 
+        1 | 1  2  3  1  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  5  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 2  = -1
+point de racourcis 2 à arrivée 3  = -2 somme => -3
+point de départ 4 à arrivé 3  = 5 > -3 
+
+Nouveau poids entre 4 et 3 = -3
+Nouveau chemin entre 4 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  -1 
+        1 | 1  1  0  2  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  inf 
+        1 | 1  2  3  1  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = 0
+point de racourcis 3 à arrivée 4  = 4 somme => 4
+point de départ 0 à arrivé 4  = inf > 4 
+
+Nouveau poids entre 0 et 4 = 4
+Nouveau chemin entre 0 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  3 
+        1 | 1  1  0  2  -1 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  4 
+        1 | 1  2  3  1  inf 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 3  = 1
+point de racourcis 3 à arrivée 4  = 4 somme => 5
+point de départ 1 à arrivé 4  = inf > 5 
+
+Nouveau poids entre 1 et 4 = 5
+Nouveau chemin entre 1 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | -1  -1  -1  2  -1 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | inf  inf  0  -2  inf 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -2
+point de racourcis 3 à arrivée 4  = 4 somme => 2
+point de départ 2 à arrivé 4  = inf > 2 
+
+Nouveau poids entre 2 et 4 = 2
+Nouveau chemin entre 2 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  -1  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | -1  -1  -1  2  3 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  inf  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | inf  inf  0  -2  2 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 0 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 0 et 1 = 7
+Nouveau chemin entre 0 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | -1  -1  -1  2  3 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | inf  inf  0  -2  2 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 0  = 4 somme => 6
+point de départ 2 à arrivé 0  = inf > 6 
+
+Nouveau poids entre 2 et 0 = 6
+Nouveau chemin entre 2 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | 1  -1  -1  2  3 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | 6  inf  0  -2  2 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 1  = 3 somme => 5
+point de départ 2 à arrivé 1  = inf > 5 
+
+Nouveau poids entre 2 et 1 = 5
+Nouveau chemin entre 2 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | 1  4  -1  2  3 
+        3 | -1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | 6  5  0  -2  2 
+        3 | inf  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 0  = 4 somme => 8
+point de départ 3 à arrivé 0  = inf > 8 
+
+Nouveau poids entre 3 et 0 = 8
+Nouveau chemin entre 3 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | 1  4  -1  2  3 
+        3 | 1  -1  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | 6  5  0  -2  2 
+        3 | 8  inf  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 3 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 3 et 1 = 7
+Nouveau chemin entre 3 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | 1  4  -1  2  3 
+        3 | 1  4  -1  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | 6  5  0  -2  2 
+        3 | 8  7  inf  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 2  = -1 somme => 3
+point de départ 3 à arrivé 2  = inf > 3 
+
+Nouveau poids entre 3 et 2 = 3
+Nouveau chemin entre 3 et 2 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  4  0  2  3 
+        1 | 1  1  0  2  3 
+        2 | 1  4  -1  2  3 
+        3 | 1  4  4  -1  3 
+        4 | 1  4  4  2  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  7  2  0  4 
+        1 | 1  2  3  1  5 
+        2 | 6  5  0  -2  2 
+        3 | 8  7  3  0  4 
+        4 | 4  3  -1  -3  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 0 à 4 est : [0, 1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 1 à 0 est : [1, 0] 
+
+
+le chemin le plus cours pour aller de 1 à 2 est : [1, 0, 2] 
+
+
+le chemin le plus cours pour aller de 1 à 3 est : [1, 0, 2, 3] 
+
+
+le chemin le plus cours pour aller de 1 à 4 est : [1, 0, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 2 à 0 est : [2, 0] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 0, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 0, 1, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 4 est : [2, 0, 1, 3, 4] 
+
+
+le chemin le plus cours pour aller de 3 à 0 est : [3, 0] 
+
+
+le chemin le plus cours pour aller de 3 à 1 est : [3, 0, 1] 
+
+
+le chemin le plus cours pour aller de 3 à 2 est : [3, 0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 3 à 4 est : [3, 0, 1, 2, 4] 
+
+
+le chemin le plus cours pour aller de 4 à 0 est : [4, 0] 
+
+
+le chemin le plus cours pour aller de 4 à 1 est : [4, 0, 1] 
+
+
+le chemin le plus cours pour aller de 4 à 2 est : [4, 0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 4 à 3 est : [4, 0, 1, 2, 3] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+12
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 12
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  1  1 
+        1 | 0  2  2 
+        2 | 0  3  1 
+        3 | 1  1  2 
+        4 | 2  3  -2 
+        5 | 2  4  1 
+        6 | 3  4  4 
+        7 | 4  1  3 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  1  inf 
+        1 | inf  2  inf  inf  inf 
+        2 | inf  inf  0  -2  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  0  -1 
+        1 | -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 3  = -2 somme => 0
+point de départ 0 à arrivé 3  = 1 > 0 
+
+Nouveau poids entre 0 et 3 = 0
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  2  -1 
+        1 | -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  0  inf 
+        1 | inf  2  inf  inf  inf 
+        2 | inf  inf  0  -2  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 4  = 1 somme => 3
+point de départ 0 à arrivé 4  = inf > 3 
+
+Nouveau poids entre 0 et 4 = 3
+Nouveau chemin entre 0 et 4 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  2  2 
+        1 | -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  0  3 
+        1 | inf  2  inf  inf  inf 
+        2 | inf  inf  0  -2  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 1
+point de racourcis 4 à arrivée 1  = 3 somme => 4
+point de départ 2 à arrivé 1  = inf > 4 
+
+Nouveau poids entre 2 et 1 = 4
+Nouveau chemin entre 2 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  2  2 
+        1 | -1  1  -1  -1  -1 
+        2 | -1  4  -1  2  2 
+        3 | -1  -1  -1  -1  3 
+        4 | -1  4  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  0  3 
+        1 | inf  2  inf  inf  inf 
+        2 | inf  4  0  -2  1 
+        3 | inf  inf  inf  0  4 
+        4 | inf  3  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 3 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 3 et 1 = 7
+Nouveau chemin entre 3 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  
+        0 | -1  0  0  2  2 
+        1 | -1  1  -1  -1  -1 
+        2 | -1  4  -1  2  2 
+        3 | -1  4  -1  -1  3 
+        4 | -1  4  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  
+        0 | 0  1  2  0  3 
+        1 | inf  2  inf  inf  inf 
+        2 | inf  4  0  -2  1 
+        3 | inf  7  inf  0  4 
+        4 | inf  3  inf  inf  0 
+
+ <-------------------- resultats ------------------->
+
+
+le chemin le plus cours pour aller de 0 à 1 est : [0, 1] 
+
+
+le chemin le plus cours pour aller de 0 à 2 est : [0, 1, 2] 
+
+
+le chemin le plus cours pour aller de 0 à 3 est : [0, 1, 2, 3] 
+
+
+le chemin le plus cours pour aller de 0 à 4 est : [0, 1, 2, 3, 4] 
+
+
+le chemin le plus cours pour aller de 2 à 1 est : [2, 1] 
+
+
+le chemin le plus cours pour aller de 2 à 3 est : [2, 1, 3] 
+
+
+le chemin le plus cours pour aller de 2 à 4 est : [2, 1, 3, 4] 
+
+
+le chemin le plus cours pour aller de 3 à 1 est : [3, 1] 
+
+
+le chemin le plus cours pour aller de 3 à 4 est : [3, 1, 4] 
+
+
+le chemin le plus cours pour aller de 4 à 1 est : [4, 1] 
+
+Voulez vous changez de graphe ? oui ou non
+
+/opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+gianlucca@MacBook-Air-de-gianlucca Projet-Theory-Des-Graphes % /opt/homebrew/bin/python3 /Users/gianlucca/programmation/Projet-Theory-Des-Graphes/main.py
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+
+ <-------------------------------------------->
+
+          Selectionner votre graphe
+
+ <-------------------------------------------->
+
+Quel graphe voulez-vous choisir ? (1 à 13) 
+13
+
+ <-------------------------------------------->
+
+Initialisation du fichier : 13
+Initialisation terminée
+
+ <-------------------------------------------->
+
+        Bonjour ! Voici notre programme
+
+ <-------------------------------------------->
+
+    Voici les differentes actions dont vous
+    disposez : 
+
+    Tapez sur :  A pour -> Afficher le graphe
+    Tapez sur :  F pour -> Floyd-Warshall
+    Tapez sur :  R pour -> Resultats
+    Tapez sur :  T pour -> Tout executer
+    Tapez sur :  exit pour -> Quitter
+
+ <-------------------------------------------->
+
+
+Entrez une action
+t
+
+ <-------------------------------------------->
+
+          Mat initiale
+
+ <-------------------------------------------->
+
+            0  1  2  
+        0 | 0  2  2 
+        1 | 0  3  1 
+        2 | 1  0  1 
+        3 | 1  4  1 
+        4 | 2  3  -2 
+        5 | 3  2  7 
+        6 | 3  4  4 
+        7 | 4  2  -1 
+        8 | 4  1  3 
+        9 | 5  6  1 
+        10 | 6  5  -2 
+        11 | 6  7  -2 
+
+ <-------------------------------------------->
+
+          Mat poids
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  inf  inf  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------------------------------->
+
+          Mat chemin
+
+ <-------------------------------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  -1  -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------------------------------->
+
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 2  = 2 somme => 3
+point de départ 1 à arrivé 2  = inf > 3 
+
+Nouveau poids entre 1 et 2 = 3
+Nouveau chemin entre 1 et 2 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  -1  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  inf  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 0  = 1
+point de racourcis 0 à arrivée 3  = 1 somme => 2
+point de départ 1 à arrivé 3  = inf > 2 
+
+Nouveau poids entre 1 et 3 = 2
+Nouveau chemin entre 1 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | -1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | inf  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 0  = 1 somme => 4
+point de départ 4 à arrivé 0  = inf > 4 
+
+Nouveau poids entre 4 et 0 = 4
+Nouveau chemin entre 4 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  -1  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  inf  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 1  = 3
+point de racourcis 1 à arrivée 3  = 2 somme => 5
+point de départ 4 à arrivé 3  = inf > 5 
+
+Nouveau poids entre 4 et 3 = 5
+Nouveau chemin entre 4 et 3 passe par 0
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  0  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  1  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 2  = 2
+point de racourcis 2 à arrivée 3  = -2 somme => 0
+point de départ 0 à arrivé 3  = 1 > 0 
+
+Nouveau poids entre 0 et 3 = 0
+Nouveau chemin entre 0 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  0  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 2  = 3
+point de racourcis 2 à arrivée 3  = -2 somme => 1
+point de départ 1 à arrivé 3  = 2 > 1 
+
+Nouveau poids entre 1 et 3 = 1
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  0  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  5  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 4 à raccourcis 2  = -1
+point de racourcis 2 à arrivée 3  = -2 somme => -3
+point de départ 4 à arrivé 3  = 5 > -3 
+
+Nouveau poids entre 4 et 3 = -3
+Nouveau chemin entre 4 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  -1  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  inf  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 3  = 0
+point de racourcis 3 à arrivée 4  = 4 somme => 4
+point de départ 0 à arrivé 4  = inf > 4 
+
+Nouveau poids entre 0 et 4 = 4
+Nouveau chemin entre 0 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  -1  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  inf  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 3  = -2
+point de racourcis 3 à arrivée 4  = 4 somme => 2
+point de départ 2 à arrivé 4  = inf > 2 
+
+Nouveau poids entre 2 et 4 = 2
+Nouveau chemin entre 2 et 4 passe par 3
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  -1  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  inf  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 0 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 0 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 0 et 1 = 7
+Nouveau chemin entre 0 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  0  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  3  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 4  = 1
+point de racourcis 4 à arrivée 2  = -1 somme => 0
+point de départ 1 à arrivé 2  = 3 > 0 
+
+Nouveau poids entre 1 et 2 = 0
+Nouveau chemin entre 1 et 2 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  1  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 1 à raccourcis 4  = 1
+point de racourcis 4 à arrivée 3  = -3 somme => -2
+point de départ 1 à arrivé 3  = 1 > -2 
+
+Nouveau poids entre 1 et 3 = -2
+Nouveau chemin entre 1 et 3 passe par 2
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | -1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | inf  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 0  = 4 somme => 6
+point de départ 2 à arrivé 0  = inf > 6 
+
+Nouveau poids entre 2 et 0 = 6
+Nouveau chemin entre 2 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  -1  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  inf  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 2 à raccourcis 4  = 2
+point de racourcis 4 à arrivée 1  = 3 somme => 5
+point de départ 2 à arrivé 1  = inf > 5 
+
+Nouveau poids entre 2 et 1 = 5
+Nouveau chemin entre 2 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | -1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | inf  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 0  = 4 somme => 8
+point de départ 3 à arrivé 0  = inf > 8 
+
+Nouveau poids entre 3 et 0 = 8
+Nouveau chemin entre 3 et 0 passe par 1
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  -1  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  inf  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 1  = 3 somme => 7
+point de départ 3 à arrivé 1  = inf > 7 
+
+Nouveau poids entre 3 et 1 = 7
+Nouveau chemin entre 3 et 1 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  3  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  7  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 3 à raccourcis 4  = 4
+point de racourcis 4 à arrivée 2  = -1 somme => 3
+point de départ 3 à arrivé 2  = 7 > 3 
+
+Nouveau poids entre 3 et 2 = 3
+Nouveau chemin entre 3 et 2 passe par 4
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  -1  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  0  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 6 à raccourcis 5  = -2
+point de racourcis 5 à arrivée 6  = 1 somme => -1
+point de départ 6 à arrivé 6  = 0 > -1 
+
+Nouveau poids entre 6 et 6 = -1
+Nouveau chemin entre 6 et 6 passe par 5
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  -1  5  -1 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  0  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  -1  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 5 à raccourcis 6  = 1
+point de racourcis 6 à arrivée 5  = -2 somme => -1
+point de départ 5 à arrivé 5  = 0 > -1 
+
+Nouveau poids entre 5 et 5 = -1
+Nouveau chemin entre 5 et 5 passe par 6
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  -1 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  1  inf 
+        6 | inf  inf  inf  inf  inf  -2  -1  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 5 à raccourcis 6  = 1
+point de racourcis 6 à arrivée 6  = -1 somme => 0
+point de départ 5 à arrivé 6  = 1 > 0 
+
+Nouveau poids entre 5 et 6 = -1
+Nouveau chemin entre 5 et 6 passe par 5
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  -1 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  0  inf 
+        6 | inf  inf  inf  inf  inf  -2  -1  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 5 à raccourcis 6  = 0
+point de racourcis 6 à arrivée 7  = -2 somme => -2
+point de départ 5 à arrivé 7  = inf > -2 
+
+Nouveau poids entre 5 et 7 = -2
+Nouveau chemin entre 5 et 7 passe par 6
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  6 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  0  -2 
+        6 | inf  inf  inf  inf  inf  -2  -1  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+Cycle absorbant
+
+ <-------------------- explications ------------------->
+
+point de départ 6 à raccourcis 6  = -1
+point de racourcis 6 à arrivée 5  = -2 somme => -3
+point de départ 6 à arrivé 5  = -2 > -3 
+
+Nouveau poids entre 6 et 5 = -4
+Nouveau chemin entre 6 et 5 passe par 6
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  6 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  0  -2 
+        6 | inf  inf  inf  inf  inf  -3  -1  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 6 à raccourcis 6  = -1
+point de racourcis 6 à arrivée 6  = -1 somme => -2
+point de départ 6 à arrivé 6  = -1 > -2 
+
+Nouveau poids entre 6 et 6 = -4
+Nouveau chemin entre 6 et 6 passe par 5
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  6 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  0  -2 
+        6 | inf  inf  inf  inf  inf  -3  -2  -2 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+
+ <-------------------- explications ------------------->
+
+point de départ 6 à raccourcis 6  = -2
+point de racourcis 6 à arrivée 7  = -2 somme => -4
+point de départ 6 à arrivé 7  = -2 > -4 
+
+Nouveau poids entre 6 et 7 = -6
+Nouveau chemin entre 6 et 7 passe par 6
+
+ <-------------------- chemin ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | -1  4  0  2  3  -1  -1  -1 
+        1 | 1  -1  4  2  1  -1  -1  -1 
+        2 | 1  4  -1  2  3  -1  -1  -1 
+        3 | 1  4  4  -1  3  -1  -1  -1 
+        4 | 1  4  4  2  -1  -1  -1  -1 
+        5 | -1  -1  -1  -1  -1  6  5  6 
+        6 | -1  -1  -1  -1  -1  6  5  6 
+        7 | -1  -1  -1  -1  -1  -1  -1  -1 
+
+ <-------------------- poids ------------------->
+
+            0  1  2  3  4  5  6  7  
+        0 | 0  7  2  0  4  inf  inf  inf 
+        1 | 1  0  0  -2  1  inf  inf  inf 
+        2 | 6  5  0  -2  2  inf  inf  inf 
+        3 | 8  7  3  0  4  inf  inf  inf 
+        4 | 4  3  -1  -3  0  inf  inf  inf 
+        5 | inf  inf  inf  inf  inf  -1  0  -2 
+        6 | inf  inf  inf  inf  inf  -3  -2  -4 
+        7 | inf  inf  inf  inf  inf  inf  inf  0 
+Cycle absorbant
+Cycle absorbant
+Cycle absorbant
+
+ <-------------------------------------------->
+
+          Circuit absorbant
+
+ <-------------------------------------------->
+
+Voulez vous changez de graphe ? oui ou non
