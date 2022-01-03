@@ -171,15 +171,15 @@ class Jarvis:
         self.saut_de_ligne("")
     
     def here_we_go_again(self):
-        choix = input("Voulez vous continuez ? oui ou non\n")
+        choix = input("Voulez vous changez de graphe ? oui ou non\n")
         
         while choix != "oui" and choix != "non":
-            choix = input("Voulez vous continuez ? oui ou non\n")
-        
-        if choix == "oui":
-            return True
+            choix = input("Voulez vous changez de graphe ? oui ou non\n")
         
         if choix == "non":
+            return True
+        
+        if choix == "oui":
             return False
 
 

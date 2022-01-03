@@ -285,9 +285,9 @@ class Graphe:
                         self.jarvis.saut_de_ligne("poids")
                         self.affiche_mat(self.mat_Mg)
         
-        self.absorption()
+        #self.absorption()
     
-    def absorption(self):
+    def absorption(self, x):
         somme = 0
         #print()
         #self.affiche_mat(self.mat_Mg)
@@ -296,19 +296,37 @@ class Graphe:
         for i in range(self.jarvis.sommet):
             for j in range(self.jarvis.sommet):
                 for k in range(self.jarvis.sommet):
-                    for f in range(self.jarvis.sommet):
-                        if self.mat_Mg[i][j] != INF and i != j:
-                            if self.mat_Mg[j][k] != INF and j != k:
-                                if self.mat_Mg[k][f] != INF and k != f and i == f:
-                                    somme += self.mat_Mg[i][j] + self.mat_Mg[j][k] + self.mat_Mg[k][f]
-                                    #print(i,j,k,f,"=",somme)
-                                    if somme < 0:
-                                        print("Il ya un circuit absorbant")
-                                        self.circuit = True
-                                        return
-                                    somme = 0
-        
-        
+                    for l in range(self.jarvis.sommet):
+                    
+                        if self.jarvis.sommet == 4:
+                            if self.mat_Mg[i][j] != INF and i != j:
+                                if self.mat_Mg[j][k] != INF and j != k:
+                                    if self.mat_Mg[k][l] != INF and k != l and i == l:
+                                        somme += self.mat_Mg[i][j] + self.mat_Mg[j][k] + self.mat_Mg[k][l]
+                                        #print(i,j,k,l,"=",somme)
+                                        if somme < 0:
+                                            print("Il ya un circuit absorbant")
+                                            self.circuit = True
+                                            return
+                                        somme = 0
+                        
+                        for m in range(self.jarvis.sommet):
+                            for n in range(self.jarvis.sommet):
+                                if x == 6:
+                                    if self.mat_Mg[i][j] != INF and i != j:
+                                        if self.mat_Mg[j][k] != INF and j != k:
+                                            if self.mat_Mg[k][l] != INF and k != l:
+                                                if self.mat_Mg[l][m] != INF and l != m:
+                                                    if self.mat_Mg[m][n] != INF and m != n and i == n:
+                                                        somme += self.mat_Mg[i][j] + self.mat_Mg[j][k] + self.mat_Mg[k][l] + self.mat_Mg[l][m] + self.mat_Mg[m][n]
+                                                        print(i,j,k,l,m,n,"=",somme)
+                                                        if somme < 0:
+                                                            print("Il ya un circuit absorbant")
+                                                            self.circuit = True
+                                                            return
+                                                        somme = 0
+                                    
+    
     def resultat(self):
         self.jarvis.saut_de_ligne("resultats")
         
@@ -347,7 +365,7 @@ class Graphe:
             return True
 
 
-automate = Graphe("1")
+automate = Graphe("6")
 
 
 
@@ -357,7 +375,7 @@ automate.floydwarshall()
 
 #automate.resultat()
 
-automate.absorption()
+automate.absorption(6)
 
 if automate.circuit == True:
     print("shit")
