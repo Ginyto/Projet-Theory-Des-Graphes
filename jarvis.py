@@ -113,20 +113,24 @@ class Jarvis:
     def fill(self,tab,cosa):
         tab.append(cosa)
     
-    def is_it_int(self,x):
-        typeof = type(x)
+    def is_it_graphe(self,x, baro):
+        allow = []
         
-        if typeof == int:
-            return True
+        for i in range(1,baro+1):
+            allow.append(str(i))
         
-        if typeof == str:
-            return False
+        for i in range(len(allow)):
+            if x == allow[i]:
+                return True
+        
+        return False
+        
     
     def hellothere(self):
         print("Hello there!")
 
 
-#jarvis = Jarvis()
+jarvis = Jarvis()
 #jarvis.initialisation("13")
 #jarvis = Jarvis()
 
