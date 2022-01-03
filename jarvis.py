@@ -112,10 +112,18 @@ class Jarvis:
     
     def fill(self,tab,cosa):
         tab.append(cosa)
+    
+    def is_it_int(self,x):
+        typeof = type(x)
+        
+        if typeof == int:
+            return True
+        
+        if typeof == str:
+            return False
 
 
 #jarvis = Jarvis()
-
 #jarvis.initialisation("13")
 #jarvis = Jarvis()
 
