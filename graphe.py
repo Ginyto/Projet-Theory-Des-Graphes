@@ -30,7 +30,7 @@ class Graphe:
         self.matrice_camino()
         self.fill_camino()
         
-        self.absorption()
+        
     
     
     def aiguillage_sommet(self, num,content,aiguille):
@@ -347,18 +347,20 @@ class Graphe:
             return True
 
 
-automate = Graphe("1")
+automate = Graphe("5")
 
-if automate.circuit == True:
-    print("shit")
+
 
 #automate.affiche_all()
 
-#automate.floydwarshall()
+automate.floydwarshall()
 
 #automate.resultat()
 
-#automate.absorption()
+automate.absorption()
+
+if automate.circuit == True:
+    print("shit")
 
 
 

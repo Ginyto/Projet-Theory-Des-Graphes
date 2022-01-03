@@ -32,4 +32,4 @@ while menu == True:
         else:
             if automate.boucle_menu(menu,menu_graphe,choix_action):
                 menu_graphe = False
-                menu = False
+                
