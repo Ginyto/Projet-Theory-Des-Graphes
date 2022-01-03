@@ -305,11 +305,11 @@ class Graphe:
             
 
 
-automate = Graphe("1")
+#automate = Graphe("1")
 
-automate.floydwarshall()
+#automate.floydwarshall()
 
-automate.resultat()
+#automate.resultat()
 
 
 
